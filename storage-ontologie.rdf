@@ -1,139 +1,139 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns:sec="http://www.linked-usdl.org/ns/usdl-sec#" xmlns:staas="http://linked-usdl.org/ns/usdl/storage-as-a-service#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:gr="http://purl.org/goodrelations/v1#" xmlns:usdl="http://www.linked-usdl.org/ns/usdl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:blueprint="http://bizweb.sap.com/TR/blueprint#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-	<owl:Ontology rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service">
+<rdf:RDF xmlns:sec="http://www.linked-usdl.org/ns/usdl-sec#" xmlns:usdl="http://www.linked-usdl.org/ns/usdl#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:gr="http://purl.org/goodrelations/v1#" xmlns:staas="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:blueprint="http://bizweb.sap.com/TR/blueprint#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+	<owl:Ontology rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf">
 		<dc:title>Linked-USDL Ontology for Storage as a Service</dc:title>
 		<dc:description>This vocabulary provides the terms for describing services that offer Cloud Storage as a Service. It is mainly based on the specifications of the Linked USDL Core Ontology.</dc:description>
 		<dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-11-29</dc:modified>
-		<dc:creator rdf:resource="http://linked-usdl.org/ns/usdl/storage-as-a-service#metzke" />
-		<dc:creator rdf:resource="http://linked-usdl.org/ns/usdl/storage-as-a-service#lamina" />
-	</owl:Ontology>
-	<foaf:Organization rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#HPI">
-		<foaf:member>
-			<foaf:Person rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#metzke">
+		<dc:creator>
+			<foaf:Person rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#metzke">
 				<foaf:name>Tobias Metzke</foaf:name>
 				<foaf:homepage rdf:resource="http://github.com/tmetzke" />
 			</foaf:Person>
-		</foaf:member>
-		<foaf:member>
-			<foaf:Person rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#lamina">
+		</dc:creator>
+		<dc:creator>
+			<foaf:Person rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#lamina">
 				<foaf:name>Marco Lamina</foaf:name>
 				<foaf:homepage rdf:resource="http://www.linkedin.com/pub/marco-lamina/45/229/b11" />
 			</foaf:Person>
-		</foaf:member>
+		</dc:creator>
+	</owl:Ontology>
+	<foaf:Organization rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#HPI">
+		<foaf:member rdf:resource="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#metzke" />
+		<foaf:member rdf:resource="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#lamina" />
 		<foaf:name>Hasso Plattner Institute, Potsdam</foaf:name>
 		<foaf:homepage rdf:resource="http://www.hpi.uni-potsdam.de" />
 	</foaf:Organization>
-	<skos:Concept rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#ITServices">
+	<skos:Concept rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#ITServices">
 		<skos:inScheme rdf:resource="http://bizweb.sap.com/TR/blueprint#Industry" />
 		<rdfs:label>IT services</rdfs:label>
 	</skos:Concept>
-	<owl:Property rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#hasfileSize">
+	<owl:Property rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#hasfileSize">
 		<rdfs:subPropertyOf rdf:resource="http://purl.org/goodrelations/v1#quantitativeProductOrServiceProperty" />
 		<rdfs:label>fileSize</rdfs:label>
 		<rdfs:domain rdf:resource="http://purl.org/goodrelations/v1#ProductOrService" />
 		<rdfs:range rdf:resource="http://purl.org/goodrelations/v1#QuantitativeValue" />
 	</owl:Property>
-	<owl:Property rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#hasFreeCapacity">
+	<owl:Property rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#hasFreeCapacity">
 		<rdfs:subPropertyOf rdf:resource="http://purl.org/goodrelations/v1#quantitativeProductOrServiceProperty" />
 		<rdfs:label>freeCapacity</rdfs:label>
 		<rdfs:domain rdf:resource="http://purl.org/goodrelations/v1#ProductOrService" />
 		<rdfs:range rdf:resource="http://purl.org/goodrelations/v1#QuantitativeValue" />
 	</owl:Property>
-	<owl:Property rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#hasNumberOfFiles">
+	<owl:Property rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#hasNumberOfFiles">
 		<rdfs:subPropertyOf rdf:resource="http://purl.org/goodrelations/v1#quantitativeProductOrServiceProperty" />
 		<rdfs:label>numberOfFiles</rdfs:label>
 		<rdfs:domain rdf:resource="http://purl.org/goodrelations/v1#ProductOrService" />
 		<rdfs:range rdf:resource="http://purl.org/goodrelations/v1#QuantitativeValue" />
 	</owl:Property>
-	<usdl:InteractionProtocol rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#HTTP">
+	<usdl:InteractionProtocol rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#HTTP">
 		<dcterms:title xml:lang="en">HTTP</dcterms:title>
 		<dcterms:description xml:lang="en">Hypertext Transfer Protocol for downloading files.&lt;br&gt;</dcterms:description>
-		<usdl:hasInteraction rdf:resource="http://linked-usdl.org/ns/usdl/storage-as-a-serviceHTTP-GET" />
+		<usdl:hasInteraction rdf:resource="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdfHTTP-GET" />
 	</usdl:InteractionProtocol>
-	<usdl:Interaction rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#HTTP-GET">
+	<usdl:Interaction rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#HTTP-GET">
 		<dcterms:title xml:lang="en">GET File</dcterms:title>
 		<dcterms:description xml:lang="en">HTTP GET Request for Downloading a file.&lt;br&gt;</dcterms:description>
-		<usdl:hasInput rdf:resource="http://linked-usdl.org/ns/usdl/storage-as-a-servicefileNameParameter" />
-		<usdl:hasOutput rdf:resource="http://linked-usdl.org/ns/usdl/storage-as-a-serviceFileOutput" />
+		<usdl:hasInput rdf:resource="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdffileNameParameter" />
+		<usdl:hasOutput rdf:resource="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdfFileOutput" />
 	</usdl:Interaction>
-	<usdl:Parameter rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#fileNameParameter">
+	<usdl:Parameter rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#fileNameParameter">
 		<dcterms:description xml:lang="en">the location and name of the file&lt;br&gt;</dcterms:description>
 		<rdfs:label xml:lang="en">file location</rdfs:label>
 	</usdl:Parameter>
-	<usdl:Parameter rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#FileOutput">
+	<usdl:Parameter rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#FileOutput">
 		<rdfs:label xml:lang="en">File</rdfs:label>
 		<dcterms:description xml:lang="en">the file object that can be found at the given location&lt;br&gt;</dcterms:description>
 	</usdl:Parameter>
-	<usdl:InteractionProtocol rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#BitTorrent">
+	<usdl:InteractionProtocol rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#BitTorrent">
 		<dcterms:title xml:lang="en">BitTorrent</dcterms:title>
 		<dcterms:description xml:lang="en">BitTorrent protocol for downloading files.&lt;br&gt;</dcterms:description>
 		<usdl:hasTechnicalInterface rdf:resource="http://www.bittorrent.org/beps/bep_0003.html" />
 	</usdl:InteractionProtocol>
-	<usdl:InteractionProtocol rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#SOAP">
+	<usdl:InteractionProtocol rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#SOAP">
 		<dcterms:title xml:lang="en">SOAP</dcterms:title>
 		<dcterms:description xml:lang="en">Simple Object Access Protocol</dcterms:description>
 		<usdl:hasTechnicalInterface rdf:resource="http://www.w3.org/TR/soap/" />
 	</usdl:InteractionProtocol>
-	<usdl:InteractionProtocol rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#REST">
+	<usdl:InteractionProtocol rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#REST">
 		<dcterms:title xml:lang="en">REST</dcterms:title>
 		<dcterms:description xml:lang="en">Representational State Transfer</dcterms:description>
 		<usdl:hasTechnicalInterface rdf:resource="http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm" />
 	</usdl:InteractionProtocol>
-	<sec:SecurityMeasure rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#HTTPSConnection">
+	<sec:SecurityMeasure rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#HTTPSConnection">
 		<dcterms:description xml:lang="en">
 		</dcterms:description>
 		<dcterms:subject>
-			<skos:Concept rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#Integrity">
+			<skos:Concept rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#Integrity">
 				<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#Goal" />
 				<rdfs:label>Integrity</rdfs:label>
 			</skos:Concept>
 		</dcterms:subject>
 		<dcterms:subject>
-			<skos:Concept rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#Secrecy">
+			<skos:Concept rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#Secrecy">
 				<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#SecurityMechanism" />
 				<rdfs:label>Secrecy</rdfs:label>
 			</skos:Concept>
 		</dcterms:subject>
 		<dcterms:subject>
-			<skos:Concept rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#SSL">
+			<skos:Concept rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#SSL">
 				<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#SecurityTechnology" />
 				<rdfs:label>SSL</rdfs:label>
 			</skos:Concept>
 		</dcterms:subject>
 		<dcterms:title xml:lang="en">HTTPS Connection</dcterms:title>
 	</sec:SecurityMeasure>
-	<sec:SecurityMeasure rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#Directory">
+	<sec:SecurityMeasure rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#Directory">
 		<dcterms:description xml:lang="en">
 		</dcterms:description>
 		<dcterms:subject>
-			<skos:Concept rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#Authentication">
+			<skos:Concept rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#Authentication">
 				<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#Goal" />
 				<rdfs:label>Authentication</rdfs:label>
 			</skos:Concept>
 		</dcterms:subject>
 		<dcterms:subject>
-			<skos:Concept rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#AccessControl">
+			<skos:Concept rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#AccessControl">
 				<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#SecurityMechanism" />
 				<rdfs:label>Access Control</rdfs:label>
 			</skos:Concept>
 		</dcterms:subject>
 		<dcterms:subject>
-			<skos:Concept rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#OAuth">
+			<skos:Concept rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#OAuth">
 				<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#SecurityTechnology" />
 				<rdfs:label>OAuth</rdfs:label>
 			</skos:Concept>
 		</dcterms:subject>
 		<dcterms:title xml:lang="en">Directory</dcterms:title>
 	</sec:SecurityMeasure>
-	<skos:Concept rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#Confidentiality">
+	<skos:Concept rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#Confidentiality">
 		<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#Goal" />
 		<rdfs:label>Confidentiality</rdfs:label>
 	</skos:Concept>
-	<skos:Concept rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#Cryptography">
+	<skos:Concept rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#Cryptography">
 		<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#SecurityMechanism" />
 		<rdfs:label>Cryptography</rdfs:label>
 	</skos:Concept>
-	<skos:Concept rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#AES">
+	<skos:Concept rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#AES">
 		<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#SecurityTechnology" />
 		<rdfs:label>AES</rdfs:label>
 	</skos:Concept>

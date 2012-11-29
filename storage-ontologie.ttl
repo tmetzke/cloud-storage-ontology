@@ -12,8 +12,8 @@
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix blueprint: <http://bizweb.sap.com/TR/blueprint#> .
-@prefix staas: <http://linked-usdl.org/ns/usdl/storage-as-a-service#>.
-@base <http://linked-usdl.org/ns/usdl/storage-as-a-service>.
+@prefix staas: <https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#>.
+@base <https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf>.
 
 
 <> a owl:Ontology;
