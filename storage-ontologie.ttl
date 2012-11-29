@@ -1,0 +1,168 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix usdl: <http://www.linked-usdl.org/ns/usdl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix gr: <http://purl.org/goodrelations/v1#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sec: <http://www.linked-usdl.org/ns/usdl-sec#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix blueprint: <http://bizweb.sap.com/TR/blueprint#> .
+@prefix staas: <http://linked-usdl.org/ns/usdl/storage-as-a-service#>.
+@base <http://linked-usdl.org/ns/usdl/storage-as-a-service>.
+
+
+<> a owl:Ontology;
+    dc:title "Linked-USDL Ontology for Storage as a Service";
+    dc:description "This vocabulary provides the terms for describing services that offer Cloud Storage as a Service. It is mainly based on the specifications of the Linked USDL Core Ontology.";
+    dc:modified "2012-11-29"^^xsd:date;
+    dc:creator
+        :metzke,
+        :lamina.
+
+staas:metzke a foaf:Person;
+    foaf:name "Tobias Metzke";
+    foaf:homepage <http://github.com/tmetzke>.
+	
+staas:lamina a foaf:Person;
+	foaf:name "Marco Lamina";
+    foaf:homepage <http://www.linkedin.com/pub/marco-lamina/45/229/b11>.
+	
+staas:HPI a foaf:Organization;
+    foaf:member 
+		staas:metzke, 
+		staas:lamina;
+    foaf:name "Hasso Plattner Institute, Potsdam";
+    foaf:homepage <http://www.hpi.uni-potsdam.de>.
+	
+staas:ITServices
+  a skos:Concept ; 
+  skos:inScheme blueprint:Industry ; 
+  rdfs:label "IT services" . 	
+	
+staas:hasfileSize
+  a owl:Property ; 
+  rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
+  rdfs:label "fileSize" ; 
+  rdfs:domain gr:ProductOrService ; 
+  rdfs:range gr:QuantitativeValue . 
+
+staas:hasFreeCapacity
+  a owl:Property ; 
+  rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
+  rdfs:label "freeCapacity" ; 
+  rdfs:domain gr:ProductOrService ; 
+  rdfs:range gr:QuantitativeValue .
+  
+staas:hasNumberOfFiles
+  a owl:Property ; 
+  rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
+  rdfs:label "numberOfFiles" ; 
+  rdfs:domain gr:ProductOrService ; 
+  rdfs:range gr:QuantitativeValue . 
+  
+staas:HTTP 
+  a usdl:InteractionProtocol ; 
+  dcterms:title "HTTP"@en ; 
+  dcterms:description "Hypertext Transfer Protocol for downloading files.<br>"@en ; 
+  usdl:hasInteraction :HTTP-GET. 
+
+staas:HTTP-GET 
+  a usdl:Interaction ; 
+  dcterms:title "GET File"@en ; 
+  dcterms:description "HTTP GET Request for Downloading a file.<br>"@en ; 
+  usdl:hasInput :fileNameParameter; 
+  usdl:hasOutput :FileOutput. 
+
+staas:fileNameParameter
+  a usdl:Parameter ; 
+  dcterms:description "the location and name of the file<br>"@en ; 
+  rdfs:label "file location"@en . 
+
+staas:FileOutput
+  a usdl:Parameter ; 
+  rdfs:label "File"@en ; 
+  dcterms:description "the file object that can be found at the given location<br>"@en . 
+
+staas:BitTorrent 
+  a usdl:InteractionProtocol ; 
+  dcterms:title "BitTorrent"@en ; 
+  dcterms:description "BitTorrent protocol for downloading files.<br>"@en ; 
+  usdl:hasTechnicalInterface <http://www.bittorrent.org/beps/bep_0003.html> . 
+
+staas:SOAP 
+  a usdl:InteractionProtocol ; 
+  dcterms:title "SOAP"@en ; 
+  dcterms:description "Simple Object Access Protocol"@en ; 
+  usdl:hasTechnicalInterface <http://www.w3.org/TR/soap/> . 
+
+staas:REST
+  a usdl:InteractionProtocol ; 
+  dcterms:title "REST"@en ; 
+  dcterms:description "Representational State Transfer"@en ; 
+  usdl:hasTechnicalInterface <http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm> .
+  
+staas:HTTPSConnection
+  a sec:SecurityMeasure ; 
+  dcterms:description ""@en ; 
+  dcterms:subject staas:Integrity, 
+    staas:Secrecy, 
+    staas:SSL; 
+  dcterms:title "HTTPS Connection"@en . 
+
+staas:Directory
+  a sec:SecurityMeasure ; 
+  dcterms:description ""@en ; 
+  dcterms:subject staas:Authentication , 
+    staas:AccessControl , 
+    staas:OAuth ; 
+  dcterms:title "Directory"@en .
+  
+staas:Integrity 
+  a skos:Concept ; 
+  skos:inScheme sec:Goal ; 
+  rdfs:label "Integrity" . 
+
+staas:Secrecy
+  a skos:Concept ; 
+  skos:inScheme sec:SecurityMechanism ; 
+  rdfs:label "Secrecy" . 
+
+staas:SSL 
+  a skos:Concept ; 
+  skos:inScheme sec:SecurityTechnology ; 
+  rdfs:label "SSL" . 
+  
+staas:Authentication 
+  a skos:Concept ; 
+  skos:inScheme sec:Goal ; 
+  rdfs:label "Authentication" . 
+
+staas:AccessControl 
+  a skos:Concept ; 
+  skos:inScheme sec:SecurityMechanism ; 
+  rdfs:label "Access Control" . 
+
+staas:OAuth 
+  a skos:Concept ; 
+  skos:inScheme sec:SecurityTechnology ; 
+  rdfs:label "OAuth" .
+  
+staas:Confidentiality 
+  a skos:Concept ; 
+  skos:inScheme sec:Goal ; 
+  rdfs:label "Confidentiality" . 
+
+staas:Cryptography 
+  a skos:Concept ; 
+  skos:inScheme sec:SecurityMechanism ; 
+  rdfs:label "Cryptography" . 
+
+staas:AES 
+  a skos:Concept ; 
+  skos:inScheme sec:SecurityTechnology ; 
+  rdfs:label "AES" .
