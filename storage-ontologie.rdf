@@ -4,8 +4,8 @@
 		<dc:title>Linked-USDL Ontology for Storage as a Service</dc:title>
 		<dc:description>This vocabulary provides the terms for describing services that offer Cloud Storage as a Service. It is mainly based on the specifications of the Linked USDL Core Ontology.</dc:description>
 		<dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-11-29</dc:modified>
-		<dc:creator rdf:resource="http://linked-usdl.org/ns/usdl/storage-as-a-servicemetzke" />
-		<dc:creator rdf:resource="http://linked-usdl.org/ns/usdl/storage-as-a-servicelamina" />
+		<dc:creator rdf:resource="http://linked-usdl.org/ns/usdl/storage-as-a-service#metzke" />
+		<dc:creator rdf:resource="http://linked-usdl.org/ns/usdl/storage-as-a-service#lamina" />
 	</owl:Ontology>
 	<foaf:Organization rdf:about="http://linked-usdl.org/ns/usdl/storage-as-a-service#HPI">
 		<foaf:member>

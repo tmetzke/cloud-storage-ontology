@@ -21,8 +21,8 @@
     dc:description "This vocabulary provides the terms for describing services that offer Cloud Storage as a Service. It is mainly based on the specifications of the Linked USDL Core Ontology.";
     dc:modified "2012-11-29"^^xsd:date;
     dc:creator
-        :metzke,
-        :lamina.
+        staas:metzke,
+        staas:lamina.
 
 staas:metzke a foaf:Person;
     foaf:name "Tobias Metzke";
