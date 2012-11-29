@@ -1,0 +1,28 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix gr: <http://purl.org/goodrelations/v1#> .
+@prefix staas: <https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#>.
+@base <https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf>.
+
+<> a owl:Ontology.
+	
+staas:hasfileSize
+  a owl:Property ; 
+  rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
+  rdfs:label "fileSize" ; 
+  rdfs:domain gr:ProductOrService ; 
+  rdfs:range gr:QuantitativeValue . 
+
+staas:hasFreeCapacity
+  a owl:Property ; 
+  rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
+  rdfs:label "freeCapacity" ; 
+  rdfs:domain gr:ProductOrService ; 
+  rdfs:range gr:QuantitativeValue .
+  
+staas:hasNumberOfFiles
+  a owl:Property ; 
+  rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
+  rdfs:label "numberOfFiles" ; 
+  rdfs:domain gr:ProductOrService ; 
+  rdfs:range gr:QuantitativeValue .
