@@ -13,6 +13,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix blueprint: <http://bizweb.sap.com/TR/blueprint#> .
 @prefix price: <http://www.linked-usdl.org/ns/usdl-price#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>.
 @prefix staas: <https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#>.
 @base <https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf>.
 
@@ -60,57 +61,42 @@ staas:hasServiceProperty
 staas:hasfileSize
   a owl:Property ; 
   rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
-  rdfs:label "fileSize" ; 
+  rdfs:label "maximum file size available" ; 
   rdfs:domain gr:ProductOrService ; 
   rdfs:range gr:QuantitativeValue . 
 
-staas:hasFreeCapacity
+staas:hasCapacity
   a owl:Property ; 
   rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
-  rdfs:label "freeCapacity" ; 
+  rdfs:label "General Capacity Offered" ; 
   rdfs:domain gr:ProductOrService ; 
   rdfs:range gr:QuantitativeValue .
   
 staas:hasNumberOfFiles
   a owl:Property ; 
   rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
-  rdfs:label "numberOfFiles" ; 
+  rdfs:label "number of files allowed" ; 
   rdfs:domain gr:ProductOrService ; 
   rdfs:range gr:QuantitativeValue . 
-  
+
+# TODO have to change geo:Location to existing property/class of geo ontology
 staas:hasServerLocation
   a owl:Property ; 
   rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
-  rdfs:label "numberOfFiles" ; 
+  rdfs:label "approximate geo location of used server" ; 
   rdfs:domain gr:ProductOrService ; 
   rdfs:range geo:Location . 
 
 # -------------------------------------------  
-# instances as reference objects from here on
+# instances (as reference objects) from here on
 # -------------------------------------------
 
+#Interaction Protocols
 staas:HTTP 
   a usdl:InteractionProtocol ; 
   dcterms:title "HTTP"@en ; 
   dcterms:description "Hypertext Transfer Protocol for downloading files.<br>"@en ; 
   usdl:hasInteraction :HTTP-GET. 
-
-staas:HTTP-GET 
-  a usdl:Interaction ; 
-  dcterms:title "GET File"@en ; 
-  dcterms:description "HTTP GET Request for Downloading a file.<br>"@en ; 
-  usdl:hasInput :fileNameParameter; 
-  usdl:hasOutput :FileOutput. 
-
-staas:fileNameParameter
-  a usdl:Parameter ; 
-  dcterms:description "the location and name of the file<br>"@en ; 
-  rdfs:label "file location"@en . 
-
-staas:FileOutput
-  a usdl:Parameter ; 
-  rdfs:label "File"@en ; 
-  dcterms:description "the file object that can be found at the given location<br>"@en . 
 
 staas:BitTorrent 
   a usdl:InteractionProtocol ; 
@@ -129,7 +115,26 @@ staas:REST
   dcterms:title "REST"@en ; 
   dcterms:description "Representational State Transfer"@en ; 
   usdl:hasTechnicalInterface <http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm> .
-  
+
+#Interactions and Parameters
+staas:HTTP-GET 
+  a usdl:Interaction ; 
+  dcterms:title "GET File"@en ; 
+  dcterms:description "HTTP GET Request for Downloading a file.<br>"@en ; 
+  usdl:hasInput :fileNameParameter; 
+  usdl:hasOutput :FileOutput. 
+
+staas:fileNameParameter
+  a usdl:Parameter ; 
+  dcterms:description "the location and name of the file<br>"@en ; 
+  rdfs:label "file location"@en . 
+
+staas:FileOutput
+  a usdl:Parameter ; 
+  rdfs:label "File"@en ; 
+  dcterms:description "the file object that can be found at the given location<br>"@en . 
+
+#Security Measures  
 staas:HTTPSConnection
   a sec:SecurityMeasure ; 
   dcterms:description ""@en ; 
@@ -145,52 +150,66 @@ staas:Directory
     staas:AccessControl , 
     staas:OAuth ; 
   dcterms:title "Directory"@en .
-  
+
+#Security Goals
 staas:Integrity 
   a skos:Concept ; 
   skos:inScheme sec:Goal ; 
   rdfs:label "Integrity" . 
 
+staas:Anonymity
+  a skos:Concept ; 
+  skos:inScheme sec:Goal ; 
+  rdfs:label "Anonymity" . 
+
+staas:Authentication 
+  a skos:Concept ; 
+  skos:inScheme sec:Goal ; 
+  rdfs:label "Authentication" .
+
+staas:Confidentiality 
+  a skos:Concept ; 
+  skos:inScheme sec:Goal ; 
+  rdfs:label "Confidentiality" .
+  
+#Security Mechanisms  
 staas:Secrecy
   a skos:Concept ; 
   skos:inScheme sec:SecurityMechanism ; 
   rdfs:label "Secrecy" . 
-
-staas:SSL 
-  a skos:Concept ; 
-  skos:inScheme sec:SecurityTechnology ; 
-  rdfs:label "SSL" . 
-  
-staas:Authentication 
-  a skos:Concept ; 
-  skos:inScheme sec:Goal ; 
-  rdfs:label "Authentication" . 
 
 staas:AccessControl 
   a skos:Concept ; 
   skos:inScheme sec:SecurityMechanism ; 
   rdfs:label "Access Control" . 
 
-staas:OAuth 
-  a skos:Concept ; 
-  skos:inScheme sec:SecurityTechnology ; 
-  rdfs:label "OAuth" .
-  
-staas:Confidentiality 
-  a skos:Concept ; 
-  skos:inScheme sec:Goal ; 
-  rdfs:label "Confidentiality" . 
-
 staas:Cryptography 
   a skos:Concept ; 
   skos:inScheme sec:SecurityMechanism ; 
   rdfs:label "Cryptography" . 
 
+#Security Technologies
+staas:SSL 
+  a skos:Concept ; 
+  skos:inScheme sec:SecurityTechnology ; 
+  rdfs:label "SSL" . 
+
+staas:TLS
+  a skos:Concept ; 
+  skos:inScheme sec:SecurityTechnology ; 
+  rdfs:label "TLS" . 
+
+staas:OAuth 
+  a skos:Concept ; 
+  skos:inScheme sec:SecurityTechnology ; 
+  rdfs:label "OAuth" .
+
 staas:AES 
   a skos:Concept ; 
   skos:inScheme sec:SecurityTechnology ; 
   rdfs:label "AES" .
-  
+
+#SAP Business Blueprints  
 staas:ITServices
   a skos:Concept ; 
   skos:inScheme blueprint:Industry ; 
