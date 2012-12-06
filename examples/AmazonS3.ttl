@@ -38,6 +38,7 @@
   foaf:page <http://aws.amazon.com/de/s3/> ; 
   foaf:thumbnail <http://playground.ebiene.de/wp-content/uploads/2011/08/amazon-aws-64x64.png> ; 
   staas:hasfileSize :fileSize; 
+  staas:hasNumberOfFiles :numberOfFiles;
   usdl:hasInteractionProtocol staas:SOAP , 
     staas:REST, 
     staas:HTTP, 
@@ -45,12 +46,11 @@
   usdl:hasSecurityProfile :SecureUploadDownload, 
     :IAM, 
     :DataEncryption; 
-  staas:hasNumberOfFiles :numberOfFiles; 
-  staas:hasFreeCapacity :freeCapacity; 
-  usdl:hasLegalCondition :Terms1, :Terms2, :Terms3, :Terms4;
   usdl:hasProvider :AWS; 
   usdl:hasServiceLevelProfile :StandardProfile. 
+  usdl:hasLegalCondition :Terms1, :Terms2, :Terms3, :Terms4;
 
+#Property Values
 :fileSize
   a gr:QuantitativeValue ; 
   gr:hasMinValue "1" ; 
@@ -58,6 +58,14 @@
   gr:hasUnitOfMeasurement "byte" ; 
   gr:hasValue "" . 
 
+:numberOfFiles
+  a gr:QuantitativeValue ; 
+  gr:hasMaxValue "" ; 
+  gr:hasUnitOfMeasurement "" ; 
+  gr:hasValue "unlimited" ; 
+  gr:hasMinValue "" . 
+    
+#Security  
 :SecureUploadDownload
   a sec:SecurityProfile ; 
   dcterms:title "SecureUploadDownload"@en ; 
@@ -79,22 +87,56 @@
     staas:Cryptography , 
     staas:AES ; 
   dcterms:title "SSE"@en ; 
-  dcterms:description "Server Side Encryption of the data.<br>"@en . 
+  dcterms:description "Server Side Encryption of the data.<br>"@en .  
 
-:numberOfFiles
+#Provider
+:AWS
+  a gr:BusinessEntity ; 
+  dcterms:description ""@en ; 
+  vcard:adr :AWSAddress ; 
+  foaf:logo <http://playground.ebiene.de/wp-content/uploads/2011/08/amazon-aws-64x64.png> ; 
+  usdl:legalForm "LLC" ; 
+  foaf:name "Amazon Web Services" ; 
+  foaf:homepage <http://aws.amazon.com/de/> . 
+
+:AWSAddress 
+  a vcard:Work ; 
+  dcterms:description ""@en ; 
+  vcard:street-address "1200 12th Avenue South  Suite 1200" ; 
+  vcard:country-name "United States" ; 
+  vcard:postal-code "98144-2734" ; 
+  vcard:email "" ; 
+  vcard:tel "206-266-4064" ; 
+  vcard:locality "Seattle, WA" . 
+
+#SLAs
+:StandardProfile 
+  a usdl:ServiceLevelProfile ;
+  sla:hasServiceLevel :Availability; 
+  dcterms:title "Standard Service Level"@en . 
+
+:Availability
+  a sla:GuaranteedState ; 
+  sla:serviceLevelExpression :MonthlyUptimePercentage ; 
+  sla:obligatedParty usdl:Provider ; 
+  dcterms:title "Availability"@en . 
+
+:MonthlyUptimePercentage 
+  a sla:ServiceLevelExpression ; 
+  sla:hasVariable :AverageMonthlyErrorRate; 
+  dcterms:description "Monthly Uptime Percentage is calculated by subtracting from 100% the average of the Error Rates from each five minute period in the monthly billing cycle.Error Rate means: (i) the total number of internal server errors returned by Amazon S3 as error status InternalError or ServiceUnavailable divided by (ii) the total number of requests during that five minute period. We will calculate the Error Rate for each Amazon S3 account as a percentage for each five minute period in the monthly billing cycle."@en . 
+
+:AverageMonthlyErrorRate 
+  a sla:Variable ; 
+  sla:hasDefault :ErrorValue ; 
+  rdfs:label "Average Monthly Error Rate" . 
+
+:ErrorValue 
   a gr:QuantitativeValue ; 
-  gr:hasMaxValue "" ; 
-  gr:hasUnitOfMeasurement "" ; 
-  gr:hasValue "unlimited" ; 
-  gr:hasMinValue "" . 
+  gr:hasUnitOfMeasurement "percent" ; 
+  gr:hasValue "0,01" . 
 
-:freeCapacity
-  a gr:QuantitativeValue ; 
-  gr:hasMaxValue "5" ; 
-  gr:hasUnitOfMeasurement "GB" ; 
-  gr:hasMinValue "" ; 
-  gr:hasValue "5" . 
-
+#Legal
 :Terms1
   a legal:TermsAndConditions ; 
   dcterms:description ""@en ; 
@@ -151,48 +193,3 @@
   a legal:TermsAndConditions ; 
   dcterms:description ""@en ; 
   dcterms:title "4. Your Responsibilities"@en . 
-
-:AWS
-  a gr:BusinessEntity ; 
-  dcterms:description ""@en ; 
-  vcard:adr :AWSAddress ; 
-  foaf:logo <http://playground.ebiene.de/wp-content/uploads/2011/08/amazon-aws-64x64.png> ; 
-  usdl:legalForm "LLC" ; 
-  foaf:name "Amazon Web Services" ; 
-  foaf:homepage <http://aws.amazon.com/de/> . 
-
-:AWSAddress 
-  a vcard:Work ; 
-  dcterms:description ""@en ; 
-  vcard:street-address "1200 12th Avenue South  Suite 1200" ; 
-  vcard:country-name "United States" ; 
-  vcard:postal-code "98144-2734" ; 
-  vcard:email "" ; 
-  vcard:tel "206-266-4064" ; 
-  vcard:locality "Seattle, WA" . 
-
-:StandardProfile 
-  a usdl:ServiceLevelProfile ;
-  sla:hasServiceLevel :Availability; 
-  dcterms:title "Standard Service Level"@en . 
-
-:Availability
-  a sla:GuaranteedState ; 
-  sla:serviceLevelExpression :MonthlyUptimePercentage ; 
-  sla:obligatedParty usdl:Provider ; 
-  dcterms:title "Availability"@en . 
-
-:MonthlyUptimePercentage 
-  a sla:ServiceLevelExpression ; 
-  sla:hasVariable :AverageMonthlyErrorRate; 
-  dcterms:description "Monthly Uptime Percentage is calculated by subtracting from 100% the average of the Error Rates from each five minute period in the monthly billing cycle.Error Rate means: (i) the total number of internal server errors returned by Amazon S3 as error status InternalError or ServiceUnavailable divided by (ii) the total number of requests during that five minute period. We will calculate the Error Rate for each Amazon S3 account as a percentage for each five minute period in the monthly billing cycle."@en . 
-
-:AverageMonthlyErrorRate 
-  a sla:Variable ; 
-  sla:hasDefault :ErrorValue ; 
-  rdfs:label "Average Monthly Error Rate" . 
-
-:ErrorValue 
-  a gr:QuantitativeValue ; 
-  gr:hasUnitOfMeasurement "percent" ; 
-  gr:hasValue "0,01" . 
