@@ -1,0 +1,198 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/> . 
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+@prefix msm: <http://cms-wg.sti2.org/ns/minimal-service-model#> . 
+@prefix owl: <http://www.w3.org/2002/07/owl#> . 
+@prefix dcterms: <http://purl.org/dc/terms/> . 
+@prefix usdl: <http://www.linked-usdl.org/ns/usdl-core#> . 
+@prefix legal: <http://www.linked-usdl.org/ns/usdl-legal#> . 
+@prefix price: <http://www.linked-usdl.org/ns/usdl-pricing#> . 
+@prefix sla: <http://www.linked-usdl.org/ns/usdl-sla#> . 
+@prefix sec: <http://www.linked-usdl.org/ns/usdl-sec#> . 
+@prefix blueprint: <http://bizweb.sap.com/TR/blueprint#> . 
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> . 
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . 
+@prefix ctag: <http://commontag.org/ns#> . 
+@prefix org: <http://www.w3.org/ns/org#> . 
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> . 
+@prefix time: <http://www.w3.org/2006/time#> . 
+@prefix gr: <http://purl.org/goodrelations/v1#> . 
+@prefix doap: <http://usefulinc.com/ns/doap#> . 
+@prefix staas: <https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#>.
+@base <http://aws.amazon.com/de/s3#>.
+
+:AmazonS3ServiceDescription
+  a usdl:ServiceDescription;
+  dcterms:creator
+	staas:metzke,
+	staas:lamina; 
+  dcterms:title "AmazonS3". 
+
+:AmazonS3
+  a usdl:Service ;
+  dcterms:subject staas:ITServices ; 
+  dcterms:description "Cloud Storage Service offered by Amazon Web Services LLC"@en; 
+  dcterms:title "Amazon S3"@en ;  
+  dcterms:created "2012-11-28T15:46"^^xsd:datetime ; 
+  dcterms:modified "2012-11-28T15:46"^^xsd:datetime ; 
+  foaf:page <http://aws.amazon.com/de/s3/> ; 
+  foaf:thumbnail <http://playground.ebiene.de/wp-content/uploads/2011/08/amazon-aws-64x64.png> ; 
+  staas:hasfileSize :fileSize; 
+  usdl:hasInteractionProtocol staas:SOAP , 
+    staas:REST, 
+    staas:HTTP, 
+    staas:BitTorrent; 
+  usdl:hasSecurityProfile :SecureUploadDownload, 
+    :IAM, 
+    :DataEncryption; 
+  staas:hasNumberOfFiles :numberOfFiles; 
+  staas:hasFreeCapacity :freeCapacity; 
+  usdl:hasLegalCondition :Terms1, :Terms2, :Terms3, :Terms4;
+  usdl:hasProvider :AWS; 
+  usdl:hasServiceLevelProfile :StandardProfile. 
+
+:fileSize
+  a gr:QuantitativeValue ; 
+  gr:hasMinValue "1" ; 
+  gr:hasMaxValue "1 099 511 627 776" ; 
+  gr:hasUnitOfMeasurement "byte" ; 
+  gr:hasValue "" . 
+
+:SecureUploadDownload
+  a sec:SecurityProfile ; 
+  dcterms:title "SecureUploadDownload"@en ; 
+  sec:hasSecurityMeasure staas:HTTPSConnection. 
+
+:IAM
+  a sec:SecurityProfile ; 
+  dcterms:title "IAM"@en ; 
+  sec:hasSecurityMeasure staas:Directory. 
+
+:DataEncryption
+  a sec:SecurityProfile ; 
+  dcterms:title "Data Encryption"@en ; 
+  sec:hasSecurityMeasure :SSE. 
+
+:SSE
+  a sec:SecurityMeasure ; 
+  dcterms:subject staas:Confidentiality , 
+    staas:Cryptography , 
+    staas:AES ; 
+  dcterms:title "SSE"@en ; 
+  dcterms:description "Server Side Encryption of the data.<br>"@en . 
+
+:numberOfFiles
+  a gr:QuantitativeValue ; 
+  gr:hasMaxValue "" ; 
+  gr:hasUnitOfMeasurement "" ; 
+  gr:hasValue "unlimited" ; 
+  gr:hasMinValue "" . 
+
+:freeCapacity
+  a gr:QuantitativeValue ; 
+  gr:hasMaxValue "5" ; 
+  gr:hasUnitOfMeasurement "GB" ; 
+  gr:hasMinValue "" ; 
+  gr:hasValue "5" . 
+
+:Terms1
+  a legal:TermsAndConditions ; 
+  dcterms:description ""@en ; 
+  legal:hasClause :Clause1-1, :Clause1-2, :Clause1-3, :Clause1-4;
+  dcterms:title "1. Use of the Service Offerings"@en . 
+
+:Clause1-1
+  a legal:Clause ; 
+  legal:name "1.1 Generally" ; 
+  legal:text "You may access and use the Service Offerings in accordance with this \nAgreement.  Service Level Agreements may apply to certain Service \nOfferings.  You will adhere to all laws, rules, and regulations \napplicable to your use of the Service Offerings, including the Service \nTerms, the Acceptable Use Policy and the other Policies as defined in \nSection 14"@en . 
+
+:Clause1-2
+  a legal:Clause ; 
+  legal:text "  To access the Services, you must create an AWS account associated with\n a valid e-mail address.  Unless explicitly permitted by the Service \nTerms, you may only create one account per email address.  You are \nresponsible for all activities that occur under your account, regardless\n of whether the activities are undertaken by you, your employees or a \nthird party (including your contractors or agents) and, except to the \nextent caused by our breach of this Agreement, we and our affiliates are\n not responsible for unauthorized access to your account.  You will \ncontact us immediately if you believe an unauthorized third party may be\n using your account or if your account information is lost or stolen.  \nYou may terminate your account and this Agreement at any time in \naccordance with Section 7."@en ; 
+  legal:name "1.2 Your Account" . 
+
+:Clause1-3
+  a legal:Clause ; 
+  legal:name "1.3 Support to You" ; 
+  legal:text " If you would like support for the Services other than the support we \ngenerally provide to other users of the Services without charge, you may\n enroll for customer support in accordance with the terms of the AWS \nSupport Guidelines."@en . 
+
+:Clause1-4
+  a legal:Clause ; 
+  legal:name "1.4 Third Party Content" ; 
+  legal:text " Third Party Content, such as software applications provided by third \nparties, may be made available directly to you by other companies or \nindividuals under separate terms and conditions, including separate fees\n and charges.  Because we may not have tested or screened the Third \nParty Content, your use of any Third Party Content is at your sole risk."@en . 
+
+:Terms2
+  a legal:TermsAndConditions ; 
+  dcterms:description ""@en ; 
+  dcterms:title "2. Changes"@en ; 
+  legal:hasClause :Clause2-1, :Clause2-2, :Clause2-3. 
+
+:Clause2-1
+  a legal:Clause ; 
+  legal:name "2.1 To the Service Offerings" ; 
+  legal:text "We may change, discontinue, or deprecate any of the Service Offerings \n(including the Service Offerings as a whole) or change or remove \nfeatures or functionality of the Service Offerings from time to time.  \nWe will notify you of any material change to or discontinuation of the \nService Offerings."@en . 
+
+:Clause2-2
+  a legal:Clause ; 
+  legal:name "2.2 To the APIs" ; 
+  legal:text "We may change, discontinue or deprecate any APIs for the Services from \ntime to time but will use commercially reasonable efforts to continue \nsupporting the previous version of any API changed, discontinued, or \ndeprecated for 12 months after the change, discontinuation, or \ndeprecation (except if doing so (a) would pose a security or \nintellectual property issue, (b) is economically or technically \nburdensome, or (c) is needed to comply with the law or requests of \ngovernmental entities)."@en . 
+
+:Clause2-3
+  a legal:Clause ; 
+  legal:name "2.3 To the Service Level Agreements" ; 
+  legal:text "We may change, discontinue or add Service Level Agreements from time to time."@en . 
+
+:Terms3
+  a legal:TermsAndConditions ; 
+  dcterms:description ""@en ; 
+  dcterms:title "3. Security and Data Privacy"@en . 
+
+:Terms4
+  a legal:TermsAndConditions ; 
+  dcterms:description ""@en ; 
+  dcterms:title "4. Your Responsibilities"@en . 
+
+:AWS
+  a gr:BusinessEntity ; 
+  dcterms:description ""@en ; 
+  vcard:adr :AWSAddress ; 
+  foaf:logo <http://playground.ebiene.de/wp-content/uploads/2011/08/amazon-aws-64x64.png> ; 
+  usdl:legalForm "LLC" ; 
+  foaf:name "Amazon Web Services" ; 
+  foaf:homepage <http://aws.amazon.com/de/> . 
+
+:AWSAddress 
+  a vcard:Work ; 
+  dcterms:description ""@en ; 
+  vcard:street-address "1200 12th Avenue South  Suite 1200" ; 
+  vcard:country-name "United States" ; 
+  vcard:postal-code "98144-2734" ; 
+  vcard:email "" ; 
+  vcard:tel "206-266-4064" ; 
+  vcard:locality "Seattle, WA" . 
+
+:StandardProfile 
+  a usdl:ServiceLevelProfile ;
+  sla:hasServiceLevel :Availability; 
+  dcterms:title "Standard Service Level"@en . 
+
+:Availability
+  a sla:GuaranteedState ; 
+  sla:serviceLevelExpression :MonthlyUptimePercentage ; 
+  sla:obligatedParty usdl:Provider ; 
+  dcterms:title "Availability"@en . 
+
+:MonthlyUptimePercentage 
+  a sla:ServiceLevelExpression ; 
+  sla:hasVariable :AverageMonthlyErrorRate; 
+  dcterms:description "Monthly Uptime Percentage is calculated by subtracting from 100% the average of the Error Rates from each five minute period in the monthly billing cycle.Error Rate means: (i) the total number of internal server errors returned by Amazon S3 as error status InternalError or ServiceUnavailable divided by (ii) the total number of requests during that five minute period. We will calculate the Error Rate for each Amazon S3 account as a percentage for each five minute period in the monthly billing cycle."@en . 
+
+:AverageMonthlyErrorRate 
+  a sla:Variable ; 
+  sla:hasDefault :ErrorValue ; 
+  rdfs:label "Average Monthly Error Rate" . 
+
+:ErrorValue 
+  a gr:QuantitativeValue ; 
+  gr:hasUnitOfMeasurement "percent" ; 
+  gr:hasValue "0,01" . 
