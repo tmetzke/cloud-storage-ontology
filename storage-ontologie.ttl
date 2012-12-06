@@ -12,6 +12,7 @@
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix blueprint: <http://bizweb.sap.com/TR/blueprint#> .
+@prefix price: <http://www.linked-usdl.org/ns/usdl-price#> .
 @prefix staas: <https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#>.
 @base <https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf>.
 
@@ -23,6 +24,10 @@
     dc:creator
         staas:metzke,
         staas:lamina.
+
+# -------------------------------------------
+# creators section		
+# -------------------------------------------
 
 staas:metzke a foaf:Person;
     foaf:name "Tobias Metzke";
@@ -38,11 +43,19 @@ staas:HPI a foaf:Organization;
 		staas:lamina;
     foaf:name "Hasso Plattner Institute, Potsdam";
     foaf:homepage <http://www.hpi.uni-potsdam.de>.
+
+
 	
-staas:ITServices
-  a skos:Concept ; 
-  skos:inScheme blueprint:Industry ; 
-  rdfs:label "IT services" . 	
+# -------------------------------------------
+# new properties
+# -------------------------------------------
+
+staas:hasServiceProperty
+  a owl:Property;
+  rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
+  rdfs:label "serviceProperty" ; 
+  rdfs:domain price:PricePlan; 
+  rdfs:range gr:QuantitativeValue . 
 	
 staas:hasfileSize
   a owl:Property ; 
@@ -65,6 +78,17 @@ staas:hasNumberOfFiles
   rdfs:domain gr:ProductOrService ; 
   rdfs:range gr:QuantitativeValue . 
   
+staas:hasServerLocation
+  a owl:Property ; 
+  rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
+  rdfs:label "numberOfFiles" ; 
+  rdfs:domain gr:ProductOrService ; 
+  rdfs:range geo:Location . 
+
+# -------------------------------------------  
+# instances as reference objects from here on
+# -------------------------------------------
+
 staas:HTTP 
   a usdl:InteractionProtocol ; 
   dcterms:title "HTTP"@en ; 
@@ -166,3 +190,8 @@ staas:AES
   a skos:Concept ; 
   skos:inScheme sec:SecurityTechnology ; 
   rdfs:label "AES" .
+  
+staas:ITServices
+  a skos:Concept ; 
+  skos:inScheme blueprint:Industry ; 
+  rdfs:label "IT services" .
