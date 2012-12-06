@@ -19,518 +19,238 @@
 @prefix gr: <http://purl.org/goodrelations/v1#> . 
 @prefix doap: <http://usefulinc.com/ns/doap#> . 
 @prefix staas: <https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#>.
+@base <https://www.dropbox.com/>.
 
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html> 
+:DropboxServiceDescription
   a usdl:ServiceDescription ; 
-  dcterms:title "" ; 
-  dcterms:description "" ; 
-  dcterms:modified ""^^xsd:datetime ; 
-  dcterms:created ""^^xsd:datetime ; 
-  dcterms:creator _:b173 . 
+  dcterms:title "Dropbox Service Description"@en ; 
+  dcterms:creator
+	staas:metzke,
+	staas:lamina. 
 
-_:b173 
-  a foaf:Person ; 
-  foaf:name "" . 
-
-_:b174 
-  a skos:Concept ; 
-  skos:inScheme blueprint:SolutionType ; 
-  rdfs:label "Business Solution" . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#Rj5jMW9niDmGHAkEp> 
-  dcterms:subject _:b174 , 
-    _:b175 , 
-    _:b176 , 
-    _:b177 ; 
-  dcterms:description "" ; 
-  foaf:depiction <http://ddrsl001xb.drss.sap.corp:8888/bizweb/icons/GBFlipper_AW.png> ; 
+:DropboxFileStorage
+  a usdl:Service ; 
+  dcterms:subject staas:ITServices ;
+  dcterms:description "A Storage-as-a-Service service that includes auto-sync to a Desktop application."@en ; 
+  foaf:thumbnail <http://ddrsl001xb.drss.sap.corp:8888/bizweb/icons/GBFlipper_AW.png> ; 
   dcterms:title "Dropbox"@en ; 
   dcterms:created "2012-11-23T00:00"^^xsd:datetime ; 
   dcterms:modified "2012-11-23T00:00"^^xsd:datetime ; 
-  dcterms:abstract "A Storage-as-a-Service service that includes auto-sync to a Desktop application.<br>"@en ; 
-  foaf:page <file:///C:/Users/Tobi/Downloads/usdl-editor-master/www.dropbox.com> ; 
-  <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#gCweO8tylvE9QlNfB> <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#EKiW37vxT65fGCP3z> ; 
-  usdl:hasServiceLevelProfile <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#XfV9Lsor5nrrB88Za> , 
-    <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#jkXw3LnfNA1x0uiCr> , 
-    <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#zZjntURetqGaL4EFQ> , 
-    <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#mxDpztMA2sP91Qo26> ; 
-  usdl:hasSecurityProfile <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#VlYGyzCWXzTtcooL2> , 
-    <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#5Wn7AxK669LV0Too1> ; 
-  usdl:hasLegalCondition <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#xs2iiRcZWMcfBTfrH> , 
-    <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#tipih6HeecP3vMGUe> , 
-    <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#lwLZQ4OiZAcszbS7G> , 
-    <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#CAm2VEyw4Fagne1eB> , 
-    <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#xlunSYIgH8si7M9Iw> ; 
-  usdl:hasProvider <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#pev1bv44S361QLDN5> ; 
-  usdl:utilizedResource <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#6gsibuaO8e9hReh8u> ; 
-  usdl:hasInteractionProtocol <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#dwqM49LM5an8za0bO> , 
-    <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#WuDyipyNEgg66GdrZ> ; 
-  usdl:hasServiceModel <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#Vd3JjS235zL3vTrwS> ; 
-  a usdl:Service ; 
-  foaf:thumbnail <http://upload.wikimedia.org/wikipedia/en/b/bb/Dropbox_logo.svg> ; 
-  <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#MzVVpmVj8Bv0ewZFa> <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#qfk6xpFKXPKttcaUj> ; 
-  <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#mA9TGNaEqlspERI57> <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#9oS7FtLYOyv55NGMz> . 
+  foaf:page <https://www.dropbox.com/> ; 
+  staas:hasCapacity :capacity; 
+  staas:hasNumberOfFiles :numberOfFiles; 
+  staas:hasFileSize :fileSize;
+  usdl:hasInteractionProtocol 
+    staas:HTTP, 
+    staas:REST; 
+  usdl:hasSecurityProfile 
+    :Encryption, 
+    :Authentication; 
+  usdl:hasProvider :DropboxCompany; 
+  foaf:thumbnail <http://upload.wikimedia.org/wikipedia/en/b/bb/Dropbox_logo.svg> ;
+  usdl:hasLegalCondition 
+    :TermsOfService, 
+    :TeamsAgreement, 
+    :PrivacyPolicy, 
+    :DMCAPolicy. 
 
-_:b175 
-  a skos:Concept ; 
-  skos:inScheme blueprint:PlatformType ; 
-  rdfs:label "Android" . 
-
-_:b176 
-  a skos:Concept ; 
-  skos:inScheme blueprint:BusinessArea ; 
-  rdfs:label "Services" . 
-
-_:b177 
-  a skos:Concept ; 
-  skos:inScheme blueprint:Industry ; 
-  rdfs:label "IT services" . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#EKiW37vxT65fGCP3z> 
+#Property Values
+:capacity
   a gr:QuantitativeValue ; 
   gr:hasUnitOfMeasurement "GB" ; 
   gr:hasMinValue "2" ; 
   gr:hasMaxValue "1000" ; 
-  gr:hasValue "" . 
+  gr:hasValue "" .
 
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#gCweO8tylvE9QlNfB> 
-  a owl:Property ; 
-  rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
-  rdfs:label "capacity" ; 
-  rdfs:domain gr:ProductOrService ; 
-  rdfs:range gr:QuantitativeValue . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#9wC1u2h4guFoG7guT> 
-  a usdl:ServiceOffering ; 
-  dcterms:description "" ; 
-  usdl:validFrom "2011-12-01"^^xsd:datetime ; 
-  usdl:validThrough "2011-12-31"^^xsd:datetime ; 
-  usdl:includes <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#Rj5jMW9niDmGHAkEp> ; 
-  usdl:hasPricePlan <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#TgS1kmQz7MvYw89C9>; 
-  dcterms:title "Standard Free Option"@en . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#Anx2yDjerUOpXMoFs> 
-  a price:PricePlan ; 
-  dcterms:title "" ; 
-  dcterms:description "" ; 
-  price:hasPriceComponent <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#ndHr4Unr6JzaF9FOL> . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#XfV9Lsor5nrrB88Za> 
-  a usdl:ServiceLevelProfile ; 
-  sla:hasServiceLevel <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#bjAE8f94NMmx3gE7y> ; 
-  dcterms:title "" . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#bjAE8f94NMmx3gE7y> 
-  a sla:GuaranteedState ; 
-  dcterms:title "" ; 
-  sla:serviceLevelExpression _:b178 ; 
-  sla:obligatedParty usdl:Provider . 
-
-_:b178 
-  a sla:ServiceLevelExpression ; 
-  dcterms:description "" . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#jkXw3LnfNA1x0uiCr> 
-  a usdl:ServiceLevelProfile ; 
-  sla:hasServiceLevel <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#E2phjF4xMRs7vToFl> ; 
-  dcterms:title "Availability"@en . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#E2phjF4xMRs7vToFl> 
-  a sla:GuaranteedState ; 
-  sla:serviceLevelExpression _:b179 ; 
-  sla:obligatedParty usdl:Provider ; 
-  dcterms:title "High Availability"@en . 
-
-_:b179 
-  a sla:ServiceLevelExpression ; 
-  dcterms:description "We assure a high availabilty<br><br>"@en ; 
-  sla:hasVariable <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#JEgXIxTUGajMlx1wr> . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#JEgXIxTUGajMlx1wr> 
-  a sla:Variable ; 
-  rdfs:label "Availabilty" ; 
-  sla:hasDefault _:b17a . 
-
-_:b17a 
-  a gr:QuantitativeValue ; 
-  gr:hasValue "99,5" ; 
-  gr:hasUnitOfMeasurement "percent" . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#zZjntURetqGaL4EFQ> 
-  a usdl:ServiceLevelProfile ; 
-  dcterms:title "" . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#VlYGyzCWXzTtcooL2> 
-  a sec:SecurityProfile ; 
-  dcterms:title "Encryption"@en ; 
-  sec:hasSecurityMeasure <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#kC61K2GkTEeV9FHmg> , 
-    <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#d6t3GX1JfcBLM1Yes> . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#kC61K2GkTEeV9FHmg> 
-  a sec:SecurityMeasure ; 
-  dcterms:subject _:b17b , 
-    _:b17c , 
-    _:b17d ; 
-  dcterms:title "Transport Encryption"@en ; 
-  dcterms:description "" ; 
-  gr:quantitativeProductOrServiceProperty <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#wIvzDbES4Zw6rnu58> . 
-
-_:b17b 
-  a skos:Concept ; 
-  skos:inScheme sec:Goal ; 
-  rdfs:label "Confidentiality" . 
-
-_:b17c 
-  a skos:Concept ; 
-  skos:inScheme sec:SecurityMechanism ; 
-  rdfs:label "Cryptography" . 
-
-_:b17d 
-  a skos:Concept ; 
-  skos:inScheme sec:SecurityTechnology ; 
-  rdfs:label "AES" . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#wIvzDbES4Zw6rnu58> 
-  a gr:QuantitativeValue ; 
-  rdfs:label "TLS" ; 
-  gr:hasValue "" ; 
-  gr:hasUnitOfMeasurement "" . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#xs2iiRcZWMcfBTfrH> 
-  a legal:TermsAndConditions ; 
-  dcterms:title "" ; 
-  dcterms:description "" . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#pev1bv44S361QLDN5> 
-  a gr:BusinessEntity ; 
-  foaf:name "Dropbox" ; 
-  foaf:logo <http://ddrsl001xb.drss.sap.corp:8888/bizweb/icons/03_Icon_50.png> ; 
-  dcterms:description "" ; 
-  vcard:adr _:b17e ; 
-  usdl:legalForm "" ; 
-  foaf:homepage <file:///C:/Users/Tobi/Downloads/usdl-editor-master/dropbox.com> . 
-
-_:b17e 
-  a vcard:Work ; 
-  dcterms:description "" ; 
-  vcard:tel "" ; 
-  vcard:email "" ; 
-  vcard:postal-code "" ; 
-  vcard:street-address "Dropbox Street" ; 
-  vcard:locality "Palo Alto" ; 
-  vcard:country-name "USA" . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#6gsibuaO8e9hReh8u> 
-  a blueprint:Artefact ; 
-  dcterms:title "Artefact1"@en ; 
-  dcterms:description "" ; 
-  blueprint:softwareType blueprint:PlatformApplication ; 
-  blueprint:location <file:///C:/Users/Tobi/Downloads/usdl-editor-master/where> ; 
-  blueprint:requires "Platform requirements" . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#dwqM49LM5an8za0bO> 
-  a usdl:InteractionProtocol ; 
-  dcterms:title "HTTP"@en ; 
-  dcterms:description "" ; 
-  usdl:hasTechnicalInterface <http://tools.ietf.org/html/rfc2616> ; 
-  usdl:hasInteraction <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#lAUjf0GeqU1b81au1> . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#lAUjf0GeqU1b81au1> 
-  a usdl:Interaction ; 
-  dcterms:title "GET File"@en ; 
-  usdl:hasInput <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#Qt4pSvh7558I9VXk7> ; 
-  dcterms:description "GET Request to receive a file from the storage.<br>"@en ; 
-  usdl:hasOutput <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#96KAUP0kkRQSsVU5Y> . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#Qt4pSvh7558I9VXk7> 
-  a usdl:Parameter ; 
-  dcterms:description "" ; 
-  rdfs:label "GET <filename>"@en . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#96KAUP0kkRQSsVU5Y> 
-  a usdl:Parameter ; 
-  dcterms:description "" ; 
-  rdfs:label "File"@en . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#mxDpztMA2sP91Qo26> 
-  a usdl:ServiceLevelProfile ; 
-  dcterms:title "Availability"@en . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#ndHr4Unr6JzaF9FOL> 
-  a price:PriceComponent ; 
-  dcterms:description "" ; 
-  gr:hasCurrencyValue "0"^^xsd:float ; 
-  gr:hasUnitOfMeasurement "" ; 
-  dcterms:title "Fee"@en ; 
-  gr:hasCurrency "€" . 
-
-_:b17f 
-  a skos:Concept ; 
-  skos:inScheme blueprint:SolutionType ; 
-  rdfs:label "Business Solution" . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#3XQUw9SuO5G6mJjxO> 
-  dcterms:subject _:b17f , 
-    _:b180 , 
-    _:b181 . 
-
-_:b180 
-  a skos:Concept ; 
-  skos:inScheme blueprint:PlatformType ; 
-  rdfs:label "Android" . 
-
-_:b181 
-  a skos:Concept ; 
-  skos:inScheme blueprint:BusinessArea ; 
-  rdfs:label "Services" . 
-
-_:b183 
-  a skos:Concept ; 
-  skos:inScheme blueprint:SolutionType ; 
-  rdfs:label "Business Solution" . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#Vd3JjS235zL3vTrwS> 
-  a usdl:ServiceModel ; 
-  dcterms:subject _:b183 , 
-    _:b184 , 
-    _:b185 , 
-    _:b186 ; 
-  dcterms:modified ""^^xsd:datetime ; 
-  dcterms:created ""^^xsd:datetime ; 
-  dcterms:title "StorageAsAService"@en ; 
-  dcterms:abstract "" ; 
-  dcterms:description "" ; 
-  foaf:thumbnail <http://ddrsl001xb.drss.sap.corp:8888/bizwebportal/resources/assets/icons/05_Icon_UIDivision.png> ; 
-  foaf:depiction <http://ddrsl001xb.drss.sap.corp:8888/bizweb/icons/GBFlipper_AW.png> ; 
-  <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#gCweO8tylvE9QlNfB> <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#Nq8NZ116lHY6umN2X> ; 
-  usdl:hasServiceLevelProfile <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#e6UnLMP0f857xEcpW> . 
-
-_:b184 
-  a skos:Concept ; 
-  skos:inScheme blueprint:PlatformType ; 
-  rdfs:label "Android" . 
-
-_:b185 
-  a skos:Concept ; 
-  skos:inScheme blueprint:BusinessArea ; 
-  rdfs:label "Services" . 
-
-_:b186 
-  a skos:Concept ; 
-  skos:inScheme blueprint:Industry ; 
-  rdfs:label "IT services" . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#Nq8NZ116lHY6umN2X> 
-  a gr:QuantitativeValue ; 
-  gr:hasValue "" ; 
-  gr:hasMinValue "" ; 
-  gr:hasMaxValue "" ; 
-  gr:hasUnitOfMeasurement "" . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#e6UnLMP0f857xEcpW> 
-  a usdl:ServiceLevelProfile ; 
-  dcterms:title "Confidentiality"@en ; 
-  sla:hasServiceLevel <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#vqCqTZmQY8nsLYQd5> . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#vqCqTZmQY8nsLYQd5> 
-  a sla:GuaranteedState ; 
-  sla:serviceLevelExpression _:b187 ; 
-  sla:obligatedParty usdl:Provider ; 
-  dcterms:title "High Confidentiality"@en . 
-
-_:b187 
-  a sla:ServiceLevelExpression ; 
-  dcterms:description "no other party will have access to your data<br>"@en ; 
-  sla:hasVariable <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#OoVAoBqgORNgfHAGO> . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#OoVAoBqgORNgfHAGO> 
-  a sla:Variable ; 
-  rdfs:label "Encryption" ; 
-  sla:hasDefault _:b188 . 
-
-_:b188 
-  a gr:QuantitativeValue ; 
-  gr:hasValue "AES" ; 
-  gr:hasUnitOfMeasurement "EncryptionMethod" . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#qfk6xpFKXPKttcaUj> 
+:numberOfFiles
   a gr:QuantitativeValue ; 
   gr:hasValue "" ; 
   gr:hasUnitOfMeasurement "" ; 
   gr:hasMinValue "0" ; 
   gr:hasMaxValue "unlimited" . 
 
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#MzVVpmVj8Bv0ewZFa> 
-  a owl:Property ; 
-  rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
-  rdfs:label "numberOfFiles" ; 
-  rdfs:domain gr:ProductOrService ; 
-  rdfs:range gr:QuantitativeValue . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#9oS7FtLYOyv55NGMz> 
+:fileSize
   a gr:QuantitativeValue ; 
-  gr:hasValue "" ; 
-  gr:hasMinValue "" ; 
-  gr:hasMaxValue "" ; 
-  gr:hasUnitOfMeasurement "" . 
+  gr:hasValue "unlimited".  
 
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#mA9TGNaEqlspERI57> 
-  a owl:Property ; 
-  rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
-  rdfs:label "fileSize" ; 
-  rdfs:domain gr:ProductOrService ; 
-  rdfs:range gr:QuantitativeValue . 
+#Security
+:Encryption
+  a sec:SecurityProfile ; 
+  dcterms:title "Encryption"@en ; 
+  sec:hasSecurityMeasure 
+    :TransportEncryption, 
+    :FileEncryption. 
 
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#WuDyipyNEgg66GdrZ> 
-  a usdl:InteractionProtocol ; 
-  dcterms:title "REST"@en ; 
-  dcterms:description "Representational State Transfer"@en ; 
-  usdl:hasTechnicalInterface <http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm> . 
+:TransportEncryption
+  a sec:SecurityMeasure ; 
+  dcterms:subject 
+    staas:Confidentiality, 
+    staas:Cryptography, 
+    staas:AES,
+	staas:TLS;
+  dcterms:title "Transport Encryption"@en.
 
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#d6t3GX1JfcBLM1Yes> 
+:FileEncryption
   a sec:SecurityMeasure ; 
   dcterms:description ""@en ; 
-  dcterms:subject _:b3e8 , 
-    _:b3e9 , 
-    _:b3ea ; 
+  dcterms:subject staas:Anonymity , 
+    staas:AccessControl, 
+    staas:AES ; 
   dcterms:title "File Encryption"@en . 
 
-_:b3e8 
-  a skos:Concept ; 
-  skos:inScheme sec:Goal ; 
-  rdfs:label "Anonymity" . 
-
-_:b3e9 
-  a skos:Concept ; 
-  skos:inScheme sec:SecurityMechanism ; 
-  rdfs:label "Access Control" . 
-
-_:b3ea 
-  a skos:Concept ; 
-  skos:inScheme sec:SecurityTechnology ; 
-  rdfs:label "AES" . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#tipih6HeecP3vMGUe> 
-  a legal:TermsAndConditions ; 
-  dcterms:title "Terms of Service"@en ; 
-  dcterms:description "\n\n\n\n\n\n\n\n<p class=\"p1\">Thank you for using Dropbox! These terms of service (the “<b>Terms</b>”) govern your access to and use of Dropbox (“<b>we</b>” or “<b>our</b>”) websites and services (the “<b>Services</b>”), so please carefully read them before using the Services.</p>\n<p class=\"p1\"><b>By using the Services you agree to be bound by these Terms</b>. If you are using the Services on behalf of an organization, you are agreeing to these Terms for that organization and promising that you have the authority to bind that organization to these terms. In that case, “you” and “your” will refer to that organization.</p>\n<p class=\"p2\"><br></p>\n<p class=\"p1\">You may use the Services only in compliance with these Terms. You may use the Services only if you have the power to form a contract with Dropbox and are not barred under any applicable laws from doing so. The Services may continue to change over time as we refine and add more features. We may stop, suspend, or modify the Services at any time without prior notice to you. We may also remove any content from our Services at our discretion.</p>"@en ; 
-  legal:hasClause <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#QYllRgWZ1miOwNufb> , 
-    <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#Mv0D29zvZPniYjxKq> , 
-    <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#DOf6TYXkEiVk4SVAC> , 
-    <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#og5BV0RKhbUvV8rPm> . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#QYllRgWZ1miOwNufb> 
-  a legal:Clause ; 
-  legal:name "Your Stuff & Your Privacy" ; 
-  legal:text "\n\n\n\n\n\n\n\n<p class=\"p1\">By using our Services you provide us with information, files, and folders that you submit to Dropbox (together, “your stuff”). You retain full ownership to your stuff. We don’t claim any ownership to any of it. These Terms do not grant us any rights to your stuff or intellectual property except for the limited rights that are needed to run the Services, as explained below.</p>\n<p class=\"p1\">We may need your permission to do things you ask us to do with your stuff, for example, hosting your files, or sharing them at your direction. This includes product features visible to you, for example, image thumbnails or document previews. It also includes design choices we make to technically administer our Services, for example, how we redundantly backup data to keep it safe. You give us the permissions we need to do those things solely to provide the Services. This permission also extends to trusted third parties we work with to provide the Services, for example Amazon, which provides our storage space (again, only to provide the Services).</p>\n<p class=\"p1\">To be clear, aside from the rare exceptions we identify in our <a href=\"https://www.dropbox.com/privacy\"><span class=\"s1\">Privacy Policy</span></a>, no matter how the Services change, we won’t share your content with others, including law enforcement, for any purpose unless you direct us to. How we collect and use your information generally is also explained in our <a href=\"https://www.dropbox.com/privacy\"><span class=\"s1\">Privacy Policy</span></a>.</p>\n<p class=\"p1\">You are solely responsible for your conduct, the content of your files and folders, and your communications with others while using the Services. For example, it’s your responsibility to ensure that you have the rights or permission needed to comply with these Terms.</p>\n<p class=\"p1\">We may choose to review public content for compliance with our community guidelines, but you acknowledge that Dropbox has no obligation to monitor any information on the Services. We are not responsible for the accuracy, completeness, appropriateness, or legality of files, user posts, or any other information you may be able to access using the Services.</p>"@en . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#Mv0D29zvZPniYjxKq> 
-  a legal:Clause ; 
-  legal:name "Sharing Your Stuff" ; 
-  legal:text "\n\n\n\n\n\n\n\n<p class=\"p1\">The Services provide features that allow you to share your stuff with others or to make it public. There are many things that users may do with that stuff (for example, copy it, modify it, re-share it). Please consider carefully what you choose to share or make public. Dropbox has no responsibility for that activity.</p>"@en . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#DOf6TYXkEiVk4SVAC> 
-  a legal:Clause ; 
-  legal:name "Your Responsibilities" ; 
-  legal:text "\n\n\n\n\n\n\n\n<p class=\"p1\">Files and other content in the Services may be protected by intellectual property rights of others. Please do not copy, upload, download, or share files unless you have the right to do so. You, not Dropbox, will be fully responsible and liable for what you copy, share, upload, download or otherwise use while using the Services. You must not upload spyware or any other malicious software to the Service.</p>\n<p class=\"p1\">You, and not Dropbox, are responsible for maintaining and protecting all of your stuff. Dropbox will not be liable for any loss or corruption of your stuff, or for any costs or expenses associated with backing up or restoring any of your stuff.</p>\n<p class=\"p1\">If your contact information, or other information related to your account, changes, you must notify us promptly and keep your information current. The Services are not intended for use by you if you are under 13 years of age. By agreeing to these Terms, you are representing to us that you are over 13.</p>"@en . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#og5BV0RKhbUvV8rPm> 
-  a legal:Clause ; 
-  legal:name "Account Security" ; 
-  legal:text "\n\n\n\n\n\n\n\n<p class=\"p1\">You are responsible for safeguarding the password that you use to access the Services and you agree not to disclose your password to any third party. You are responsible for any activity using your account, whether or not you authorized that activity. You should immediately notify Dropbox of any unauthorized use of your account. You acknowledge that if you wish to protect your transmission of data or files to Dropbox, it is your responsibility to use a secure encrypted connection to communicate with the Services.</p>"@en . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#lwLZQ4OiZAcszbS7G> 
-  a legal:TermsAndConditions ; 
-  dcterms:title "Teams Agreement"@en ; 
-  dcterms:description "\n\n\n\n\n\n\n\n<p class=\"p1\">This Dropbox for Teams Agreement (the \"<b>Agreement</b>\") is between Dropbox, Inc., a Delaware corporation (\"<b>Dropbox</b>\") and Customer or End User, as applicable. This Agreement governs access to and use of the Dropbox for Teams services and any client software (the \"<b>Services</b>\" or \"<b>Dropbox for Teams</b>\" or \"<b>Teams</b>\").</p>\n<p class=\"p1\"><b>The Customer ordering the Services</b>: If you are ordering the Services, then by clicking \"I Agree,\" signing your contract for the Services or using Dropbox for Teams, you agree to this Agreement as a \"<b>Customer</b>.\" If you are agreeing to this Agreement for use by an organization, you are agreeing to this Agreement on behalf of that organization. You must have the authority to bind that organization to this Agreement, otherwise you must not sign up for the Services.</p>\n<p class=\"p1\"><b>End Users of the team</b>: If you are using the Services as an \"<b>End User</b>\", then by clicking \"I Agree\" or using Dropbox for Teams you agree to this Agreement (especially note sections 1 and 13) and the Dropbox Terms of Service at <a href=\"https://www.dropbox.com/terms\"><span class=\"s1\">https://www.dropbox.com/terms</span></a>. To the extent this Agreement conflicts with the Dropbox Terms of Service, this Agreement controls. Please take note that in this Agreement, you are agreeing that your Teams Administrator may be able to control account information and access to your Teams account.</p>"@en ; 
-  legal:hasClause <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#Q10zDBjxemrlbgd7D> , 
-    <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#A4dVux1Fy6onSKbM2> , 
-    <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#HoEOigEVY6OVBU2Yl> , 
-    <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#EQyvJoF9al0pW7XlI> . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#Q10zDBjxemrlbgd7D> 
-  a legal:Clause ; 
-  legal:name "1. End Users" ; 
-  legal:text "\n\n\n\n\n\n\n\n<ol class=\"ol1\">\n<li class=\"li1\"><b>Accounts.</b> When joining a Teams account, an End User may join with a new account or convert an existing personal account into a Teams account. It's important to note that once an End User's personal account becomes a Teams account, it will be subject to the Teams Administrator's control. End Users must use the Services in compliance with any employment obligations and the Customer's terms and policies.</li>\n<li class=\"li1\"><b>Administrator Control.</b> An End User's Teams Administrator may have the ability to access, disclose, restrict, or remove information in or from an End User's Teams account. Administrators may also have the ability to monitor, restrict, or terminate access to an End User's Teams account. An End User may not be able to disassociate his or her Teams account from the team.</li>\n</ol>"@en . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#A4dVux1Fy6onSKbM2> 
-  a legal:Clause ; 
-  legal:name "2. Customer Obilgations" ; 
-  legal:text "\n\n\n\n\n\n\n\n<ol class=\"ol1\">\n<li class=\"li1\"><b>Compliance.</b> Customer will use the Services in compliance with the Dropbox Terms of Service including the Acceptable Use Policy. Customer will obtain and maintain any consents from End Users to allow Administrators to engage in the activities described in this Agreement and to allow Dropbox to provide the Services. Customer represents, and must ensure, that its End Users are governed by this Agreement, the Dropbox Terms of Service, and consent to the Dropbox Privacy Policy.</li>\n<li class=\"li1\"><b>Customer Administration of the Services.</b> Customer may specify End Users as \"<b>Administrators</b>\" through the administrative console. Customer is responsible for: (i) maintaining the confidentiality of passwords and Administrator accounts; (ii) managing access to Administrator accounts; and (iii) ensuring that Administrator use of the Services complies with this Agreement. Dropbox's responsibilities do not extend to the internal management or administration of the Services for Customer.</li>\n<li class=\"li1\"><b>Unauthorized Use &amp; Access.</b> Customer will prevent unauthorized use of the Services by its End Users and terminate any unauthorized use of the Services. The Services are not intended for use by End Users under the age of 13. Customer will ensure that it does not allow any person under 13 to use the Services. Customer will promptly notify Dropbox of any unauthorized use of, or access to, the Services.</li>\n<li class=\"li1\"><b>Restricted Uses.</b> Customer will not (i) sell, resell, or lease the Services or (ii) use the Services for activities where use or failure of the Services could lead to physical damage, death, or personal injury. Customer, not Dropbox, is responsible for any applicable vertical or industry-specific regulation compliance (e.g. HIPAA).</li>\n<li class=\"li1\"><b>Third Party Requests.</b></li>\n<ol class=\"ol2\">\n<li class=\"li1\">\"<b>Third Party Request</b>\" means a request from a third party for records relating to an End User's use of the Services including information in or from an End User or Customer Teams account. Third Party Requests may include valid search warrants, court orders, or subpoenas, or any other request for which there is written consent from End Users permitting a disclosure.</li>\n<li class=\"li1\">Customer is responsible for responding to Third Party Requests via its own access to information. Customer will seek to obtain information required to respond to Third Party Requests and will contact Dropbox only if it cannot obtain such information despite diligent efforts.</li>\n<li class=\"li1\">Dropbox will make commercially reasonable efforts, to the extent allowed bylaw and by the terms of the Third Party Request, to: (A) promptly notify Customer of Dropbox's receipt of a Third Party Request; (B) comply with Customer's commercially reasonable requests regarding its efforts to oppose a Third Party Request; and (C) provide Customer with information or tools required for Customer to respond to the Third Party Request (if Customer is otherwise unable to obtain the information). If Customer fails to promptly respond to any Third Party Request, then Dropbox may, but will not be obligated to do so.</li>\n</ol>\n<li class=\"li1\"><b>Communication Setting Management.</b> Customer is responsible for maintaining all \"opt-in/out\" settings for communications from or via Dropbox for all of Customer's End Users. Customer will use reasonable efforts to answer any requests from End Users regarding such settings.</li>\n</ol>"@en . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#HoEOigEVY6OVBU2Yl> 
-  a legal:Clause ; 
-  legal:name "" ; 
-  legal:text ""@en . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#EQyvJoF9al0pW7XlI> 
-  a legal:Clause ; 
-  legal:name "3. Services" ; 
-  legal:text "\n\n\n\n\n\n\n\n<ol class=\"ol1\">\n<li class=\"li1\"><b>Provision of Services.</b> Customer may access and use the Services made available by Dropbox under this Agreement.</li>\n<li class=\"li1\"><b>Facilities and Data Transfer.</b> Dropbox will use commercially reasonable efforts to ensure that all facilities used to store and process Customer Data meet commercially reasonable security standards. By using the Services, Customer consents to transfer, processing, and storage of Customer Data. \"<b>Customer Data</b>\" means any data and content stored or transmitted via the Services by Customer or End Users.</li>\n<li class=\"li1\"><b>Modifications to the Services.</b> Dropbox may update the Services from time to time. If Dropbox changes the Services in a manner that materially reduces their functionality, Dropbox will inform Customer, unless Customer has opted-out of communications of that type from Dropbox.</li>\n<li class=\"li1\"><b>Limitations on Use of Services.</b> Dropbox may impose reasonable limitations on bandwidth usage for the Services.</li>\n</ol>"@en . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#CAm2VEyw4Fagne1eB> 
-  a legal:TermsAndConditions ; 
-  dcterms:title "Privacy Policy"@en ; 
-  dcterms:description "\n\n\n\n\n\n\n\n<p class=\"p1\">This Privacy Policy provides our policies and procedures for collecting, using, and disclosing your information. Users can access the Dropbox service (the “<b>Service</b>”) through our website www.dropbox.com, applications on Devices, through APIs, and through third-parties. A “<b>Device</b>” is any computer used to access the Dropbox Service, including without limitation a desktop, laptop, mobile phone, tablet, or other consumer electronic device. This Privacy Policy governs your access of the Dropbox Service, regardless of how you access it, and by using our Services you consent to the collection, transfer, processing, storage, disclosure and other uses described in this Privacy Policy. All of the different forms of data, content, and information described below are collectively referred to as “information.”</p>"@en ; 
-  legal:hasClause <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#b9ArUrVadj3EK7z53> , 
-    <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#Tnysav3IMlq01Um9p> , 
-    <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#WVC3xmzvRLiY7YDZp> . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#b9ArUrVadj3EK7z53> 
-  a legal:Clause ; 
-  legal:name "1. The Information We Collect And Store" ; 
-  legal:text "\n\n\n\n\n\n\n\n<p class=\"p1\">We may collect and store the following information when running the Dropbox Service:</p>\n<p class=\"p1\"><span class=\"s1\"><b><i>Information You Provide.</i></b></span> &nbsp; When you register an account, we collect some personal information, such as your name, phone number, credit card or other billing information, email address and home and business postal addresses. You may also ask us to import your contacts by giving us access to your third party services (for example, your email account) or to use your social networking information if you give us access to your account on social network connection services. When you invite others to join Dropbox by using our referral page, we send them a one-time email for that referral. You may also provide us with your contacts’ email addresses when sharing folders or files with them. We may also receive Personal Information (for example, your email address) through other users, for example if they have tried to share something with you or tried to refer Dropbox to you.</p>\n<p class=\"p1\"><span class=\"s1\"><b><i>Files.</i></b></span> &nbsp; We collect and store the files you upload, download, or access with the Dropbox Service (“<b>Files</b>”). If you add a file to your Dropbox that has been previously uploaded by you or another user, we may associate all or a portion of the previous file with your account rather than storing a duplicate.</p>\n<p class=\"p1\"><span class=\"s1\"><b><i>Log Data.</i></b></span> &nbsp; When you use the Service, we automatically record information from your Device, its software, and your activity using the Services. This may include the Device’s Internet Protocol (“IP”) address, browser type, the web page visited before you came to our website, information you search for on our website, locale preferences, identification numbers associated with your Devices, your mobile carrier, date and time stamps associated with transactions, system configuration information, metadata concerning your Files, and other interactions with the Service.</p>\n<p class=\"p1\"><span class=\"s1\"><b><i>Cookies.</i></b></span> &nbsp; We also use “cookies” to collect information and improve our Services. A cookie is a small data file that we transfer to your Device. We may use “persistent cookies” to save your registration ID and login password for future logins to the Service. We may use “session ID cookies” to enable certain features of the Service, to better understand how you interact with the Service and to monitor aggregate usage and web traffic routing on the Service. You can instruct your browser, by changing its options, to stop accepting cookies or to prompt you before accepting a cookie from the websites you visit. If you do not accept cookies, however, you may not be able to use all aspects of the Service.</p>"@en . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#Tnysav3IMlq01Um9p> 
-  a legal:Clause ; 
-  legal:name "2. How We Use Personal Information" ; 
-  legal:text "\n\n\n\n\n\n\n\n<p class=\"p1\"><span class=\"s1\"><b><i>Personal Information.</i></b></span> &nbsp; In the course of using the Service, we may collect personal information that can be used to contact or identify you (“<b>Personal Information</b>”). Personal Information is or may be used: (i) to provide and improve our Service, (ii) to administer your use of the Service, (iii) to better understand your needs and interests, (iv) to personalize and improve your experience, and (v) to provide or offer software updates and product announcements. If you no longer wish to receive communications from us, please follow the “unsubscribe” instructions provided in any of those communications, or update your <a href=\"https://www.dropbox.com/account/settings\"><span class=\"s2\">account settings</span></a> information.</p>\n<p class=\"p1\"><span class=\"s1\"><b><i>Geo-Location Information.</i></b></span> &nbsp; Some Devices allow applications to access real-time location-based information (for example, GPS). Our mobile apps do not collect such information from your mobile device at any time while you download or use our mobile apps as of the date this policy went into effect, but may do so in the future with your consent to improve our Services. Some photos and videos you place in Dropbox may contain recorded location information. We may use this information to optimize your experience. If you do not wish to share files embedded with your geo-location information with us, please do not upload them. If you don’t want to store location data in your photos or videos, please consult the documentation for your camera to turn off that feature. Also, some of the information we collect from a Device, for example IP address, can sometimes be used to approximate a Device’s location.</p>\n<p class=\"p1\"><span class=\"s1\"><b><i>Analytics.</i></b></span> &nbsp; We also collect some information (ourselves or using third party services) using logging and cookies, such as IP address, which can sometimes be correlated with Personal Information. We use this information for the above purposes and to monitor and analyze use of the Service, for the Service’s technical administration, to increase our Service’s functionality and user-friendliness, and to verify users have the authorization needed for the Service to process their requests. As of the date this policy went into effect, we use Google Analytics. To learn more about the privacy policy of Google Analytics, click <a href=\"http://www.google.com/intl/en/policies/\"><span class=\"s2\">here</span></a>, and to learn how to opt out of that service click <a href=\"http://tools.google.com/dlpage/gaoptout?hl=en\"><span class=\"s2\">here</span></a>.</p>"@en . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#WVC3xmzvRLiY7YDZp> 
-  a legal:Clause ; 
-  legal:name "3. Information Sharing and Disclosure" ; 
-  legal:text "\n\n\n\n\n\n\n\n<p class=\"p1\"><span class=\"s1\"><b><i>Your Use.</i></b></span> &nbsp; We will display your Personal Information in your profile page and elsewhere on the Service according to the preferences you set in your account. Any information you choose to provide should reflect how much you want others to know about you. Please consider carefully what information you disclose in your profile page and your desired level of anonymity. You can review and revise your profile information at any time. We do not sell your personal information to third parties. We may also share or disclose your information with your consent, for example if you use a third party application to access your account (see below). Through certain features of the Service, you may also have the ability to make some of your information public. Public information may be broadly and quickly disseminated.</p>\n<p class=\"p1\"><span class=\"s1\"><b><i>Service Providers, Business Partners and Others.</i></b></span> &nbsp; We may use certain trusted third party companies and individuals to help us provide, analyze, and improve the Service (including but not limited to data storage, maintenance services, database management, web analytics, payment processing, and improvement of the Service’s features). These third parties may have access to your information only for purposes of performing these tasks on our behalf and under obligations similar to those in this Privacy Policy. As of the date this policy went into effect, we use Amazon’s S3 storage service to store some of your information (for example, your Files). You can find more information on Amazon's data security from the <a href=\"http://aws.amazon.com/articles/1697\"><span class=\"s2\">S3 site</span></a> or, read more about <a href=\"https://www.dropbox.com/help/7\"><span class=\"s2\">how Dropbox and Amazon securely store data</span></a>.</p>\n<p class=\"p1\"><span class=\"s1\"><b><i>Third-Party Applications.</i></b></span> &nbsp; We may share your information with a third party application with your consent, for example when you choose to access our Services through such an application. We are not responsible for what those parties do with your information, so you should make sure you trust the application and that it has a privacy policy acceptable to you.</p>\n<p class=\"p1\"><span class=\"s1\"><b><i>Compliance with Laws and Law Enforcement Requests; Protection of Dropbox's Rights.</i></b></span> &nbsp; We may disclose to parties outside Dropbox files stored in your Dropbox and information about you that we collect when we have a good faith belief that disclosure is reasonably necessary to (a) comply with a law, regulation or compulsory legal request; (b) protect the safety of any person from death or serious bodily injury; (c) prevent fraud or abuse of Dropbox or its users; or (d) to protect Dropbox’s property rights. If we provide your Dropbox files to a law enforcement agency as set forth above, we will remove Dropbox’s encryption from the files before providing them to law enforcement. However, Dropbox will not be able to decrypt any files that you encrypted prior to storing them on Dropbox.</p>\n<p class=\"p1\"><span class=\"s1\"><b><i>Business Transfers.</i></b></span> &nbsp; If we are involved in a merger, acquisition, or sale of all or a portion of our assets, your information may be transferred as part of that transaction, but we will notify you (for example, via email and/or a prominent notice on our website) of any change in control or use of your Personal Information or Files, or if either become subject to a different Privacy Policy. We will also notify you of choices you may have regarding the information.</p>\n<p class=\"p1\"><span class=\"s1\"><b><i>Non-private or Non-Personal Information.</i></b></span> &nbsp; We may disclose your non-private, aggregated, or otherwise non-personal information, such as usage statistics of our Service.</p>"@en . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#xlunSYIgH8si7M9Iw> 
-  a legal:TermsAndConditions ; 
-  dcterms:title "DMCA Policy"@en ; 
-  dcterms:description "\n\n\n\n\n\n\n\n<p class=\"p1\">Dropbox (“<b><i>Dropbox</i></b>”) respects the intellectual property rights of others and expects its users to do the same. In accordance with the Digital Millennium Copyright Act of 1998, the text of which may be found on the U.S. Copyright Office website at <a href=\"http://www.copyright.gov/legislation/dmca.pdf\"><span class=\"s1\">http://www.copyright.gov/legislation/dmca.pdf</span></a>, Dropbox will respond expeditiously to claims of copyright infringement committed using the Dropbox service and/or the Dropbox website (the “<b><i>Site</i></b>”) if such claims are reported to Dropbox’s Designated Copyright Agent identified in the sample notice below.</p>\n<p class=\"p1\">If you are a copyright owner, authorized to act on behalf of one, or authorized to act under any exclusive right under copyright, please report alleged copyright infringements taking place on or through the Site by completing the following DMCA Notice of Alleged Infringement and delivering it to Dropbox’s Designated Copyright Agent. Upon receipt of Notice as described below, Dropbox will take whatever action, in its sole discretion, it deems appropriate, including removal of the challenged content from the Site.</p>"@en . 
-
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#5Wn7AxK669LV0Too1> 
+:Authentication 
   a sec:SecurityProfile ; 
-  sec:hasSecurityMeasure <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#teDHFo7q52qzWw4EA> ; 
+  sec:hasSecurityMeasure :TwoStepVerification; 
   dcterms:title "Authentication"@en . 
 
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#teDHFo7q52qzWw4EA> 
+:TwoStepVerification
   a sec:SecurityMeasure ; 
   dcterms:description ""@en ; 
-  dcterms:subject _:b3eb , 
-    _:b3ec , 
-    _:b3ed ; 
+  dcterms:subject staas:Anonymity , 
+    staas:AccessControl , 
+    staas:AES ; 
   dcterms:title "Two-Step Verification"@en . 
 
-_:b3eb 
-  a skos:Concept ; 
-  skos:inScheme sec:Goal ; 
-  rdfs:label "Anonymity" . 
+#Provider
+:DropboxCompany
+  a gr:BusinessEntity ; 
+  foaf:name "Dropbox" ; 
+  foaf:logo <http://ddrsl001xb.drss.sap.corp:8888/bizweb/icons/03_Icon_50.png> ; 
+  vcard:adr :Address ; 
+  foaf:homepage <https://www.dropbox.com/>;
+  gr:offers 
+    :FreeOffer,
+	:ProOffer,
+	:TeamOffer. 
 
-_:b3ec 
-  a skos:Concept ; 
-  skos:inScheme sec:SecurityMechanism ; 
-  rdfs:label "Access Control" . 
+:Address
+  a vcard:Work ; 
+  vcard:street-address "Dropbox Street" ; 
+  vcard:locality "Palo Alto" ; 
+  vcard:country-name "USA" . 
 
-_:b3ed 
-  a skos:Concept ; 
-  skos:inScheme sec:SecurityTechnology ; 
-  rdfs:label "AES" . 
+#Pricing
+:FreeOffer
+  a usdl:ServiceOffering ; 
+  dcterms:title "Free Plan"@en ; 
+  usdl:hasPricePlan :FreePlan.
 
-# behold, an extension is arriving in the next section
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#TgS1kmQz7MvYw89C9> 
+:FreePlan
+  a price:PricePlan ;  
+  price:hasPriceComponent :FreePlanMonthlyFee; 
+  dcterms:title "Free Option"@en ;
+  staas:hasServiceProperty :2gbcapacity. 
+
+:FreePlanFee
+  a price:PriceComponent ; 
+  gr:hasCurrencyValue "0"^^xsd:float ; 
+  gr:hasUnitOfMeasurement "per month" ; 
+  dcterms:title "Free Fee"@en ; 
+  gr:hasCurrency "USD" . 
+
+:ProOffer
+  a usdl:ServiceOffering ; 
+  dcterms:title "Pro Plan"@en ; 
+  usdl:hasPricePlan
+    :Monthly100GB, 
+    :Yearly100GB, 
+    :Monthly200GB,
+    :Monthly500GB. 
+
+:Monthly100GB
   a price:PricePlan ; 
-  dcterms:title "Free"@en ; 
-  dcterms:description "\n\n\n\n\n\n\n\n<p class=\"p1\">Dropbox allows you to store up to 2 GB free of charge. Dropbox reserves the right to terminate Free Accounts at any time, with or without notice. Without limiting the generality of the foregoing, if a Free Account is inactive for ninety (90) days, then Dropbox may delete any or all of Your Files without providing additional notice.</p>"@en ; 
-  price:hasPriceComponent <file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#ru8zMPlRuotfSIGUH> ;
-  staas:hasServiceProperty :100gbcapacity, :15000GetRequest.
+  dcterms:title "100GB Monthly"@en ; 
+  price:hasPriceComponent :Monthly100GBFee;
+  staas:hasServiceProperty :100gbcapacity.
+
+:Monthly100GBFee
+  a price:PriceComponent ;
+  dcterms:title "Monthly Fee"@en ; 
+  gr:hasCurrency "USD" ; 
+  gr:hasCurrencyValue "9.99"^^xsd:float ; 
+  gr:hasUnitOfMeasurement "per month" . 
+
+:Yearly100GB
+  a price:PricePlan ; 
+  dcterms:title "100GB yearly"@en ; 
+  price:hasPriceComponent :Yearly100GBFee;
+  staas:hasServiceProperty :100gbcapacity.
+
+:Yearly100GBFee
+  a price:PriceComponent ; 
+  dcterms:title "Yearly Fee"@en ; 
+  gr:hasCurrency "USD" ; 
+  gr:hasCurrencyValue "99"^^xsd:float ; 
+  gr:hasUnitOfMeasurement "per year" . 
+
+:Monthly200GB
+  a price:PricePlan ;
+  dcterms:title "200GB Monthly"@en ; 
+  price:hasPriceComponent :Monthly200GBFee;
+  staas:hasServiceProperty :200gbcapacity. 
+
+:Monthly200GBFee
+  a price:PriceComponent ; 
+  dcterms:title "Monthly Fee"@en ; 
+  gr:hasCurrency "USD" ; 
+  gr:hasCurrencyValue "19.99"^^xsd:float ; 
+  gr:hasUnitOfMeasurement "per month" . 
+
+:Monthly500GB
+  a price:PricePlan ; 
+  dcterms:title "500GB Monthly"@en ; 
+  price:hasPriceComponent :Monthly500GBFee;
+  staas:hasServiceProperty :500gbcapacity. 
+
+:Monthly500GBFee
+  a price:PriceComponent ; 
+  dcterms:title "Monthly Fee"@en ; 
+  gr:hasCurrency "USD" ; 
+  gr:hasCurrencyValue "29.99"^^xsd:float ; 
+  gr:hasUnitOfMeasurement "per month" . 
+
+:TeamOffer
+  a usdl:ServiceOffering ; 
+  dcterms:description ""@en ; 
+  usdl:validFrom "2011-12-01"^^xsd:datetime ; 
+  usdl:validThrough "2011-12-31"^^xsd:datetime ; 
+  dcterms:title "Team Plan"@en ; 
+  usdl:hasPricePlan 
+    :Monthly1000GB, 
+    :Yearly1000GB. 
+
+:Monthly1000GB
+  a price:PricePlan ; 
+  dcterms:title "1000GB Monthly"@en ; 
+  price:hasPriceComponent :Monthly1000GBFee;
+  staas:hasServiceProperty :1000gbcapacity. 
+
+:Monthly1000GBFee
+  a price:PriceComponent ; 
+  dcterms:title "Monthly Fee"@en ; 
+  gr:hasCurrency "USD" ; 
+  gr:hasCurrencyValue "49.99"^^xsd:float ; 
+  gr:hasUnitOfMeasurement "per month" . 
+
+:Yearly1000GB
+  a price:PricePlan ; 
+  dcterms:title "1000GB yearly"@en ; 
+  price:hasPriceComponent :Yearly1000GBFee;
+  staas:hasServiceProperty :1000gbcapacity. 
+
+:Yearly1000GBFee
+  a price:PriceComponent ; 
+  dcterms:title "Yearly Fee"@en ; 
+  gr:hasCurrency "USD" ; 
+  gr:hasCurrencyValue "499"^^xsd:float ; 
+  gr:hasUnitOfMeasurement "per year" .   
+
+:2gbcapacity
+  a gr:QuantitativeValue ;
+  gr:hasValue "2"^^xsd:integer;
+  gr:hasMaxValue "16"^^xsd:integer;
+  gr:hasUnitOfMeasurement "GB";
+  gr:name "capacity of 2GB".
   
 :100gbcapacity
   a gr:QuantitativeValue ;
@@ -538,32 +258,104 @@ _:b3ed
   gr:hasUnitOfMeasurement "GB";
   gr:name "capacity of 100GB".
   
-:15000GetRequest
+:200gbcapacity
   a gr:QuantitativeValue ;
-  gr:hasValue "15000"^^xsd:integer;
-  gr:hasUnitOfMeasurement "requests per month";
-  gr:name "15000 request per month".
+  gr:hasValue "200"^^xsd:integer;
+  gr:hasUnitOfMeasurement "GB";
+  gr:name "capacity of 200GB".
 
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#ru8zMPlRuotfSIGUH> 
-  a price:PriceComponent ; 
-  dcterms:description ""@en ; 
-  gr:hasCurrencyValue "0"^^xsd:float ; 
-  gr:hasUnitOfMeasurement "" ; 
-  dcterms:title "Free"@en ; 
-  gr:hasCurrency "USD" . 
+:500gbcapacity
+  a gr:QuantitativeValue ;
+  gr:hasValue "500"^^xsd:integer;
+  gr:hasUnitOfMeasurement "GB";
+  gr:name "capacity of 500GB".
 
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#gD7oJtZS7Go9EOJZz> 
-  a price:PriceComponent ; 
-  dcterms:description ""@en ; 
-  gr:hasUnitOfMeasurement "Month" ; 
-  gr:hasCurrencyValue "9.99"^^xsd:float ; 
-  gr:hasCurrency "USD" ; 
-  dcterms:decription "\n\n\n\n\n\n\n\n<p class=\"p1\">Our most popular plan! Perfect for photos and docs</p>"@en . 
+:1000gbcapacity
+  a gr:QuantitativeValue ;
+  gr:hasValue "1000"^^xsd:integer;
+  gr:hasUnitOfMeasurement "GB";
+  gr:name "capacity of 1000GB".
+  
+#Legal
+:TermsOfService
+  a legal:TermsAndConditions ; 
+  dcterms:title "Terms of Service"@en ; 
+  dcterms:description "Thank you for using Dropbox! These terms of service govern your access to and use of Dropbox websites and services (the “Services”), so please carefully read them before using the Services. By using the Services you agree to be bound by these Terms. If you are using the Services on behalf of an organization, you are agreeing to these Terms for that organization and promising that you have the authority to bind that organization to these terms. In that case, “you” and “your” will refer to that organization. You may use the Services only in compliance with these Terms. You may use the Services only if you have the power to form a contract with Dropbox and are not barred under any applicable laws from doing so. The Services may continue to change over time as we refine and add more features. We may stop, suspend, or modify the Services at any time without prior notice to you. We may also remove any content from our Services at our discretion."@en ; 
+  legal:hasClause 
+    :StuffAndPrivacy, 
+    :Sharing, 
+    :Responsibilities, 
+    :AccountSecurity. 
 
-<file:///C:/Users/Tobi/Downloads/usdl-editor-master/index.html#Wa9utSxHQGWMS9XLF> 
-  a price:PriceComponent ; 
-  dcterms:description ""@en ; 
-  gr:hasCurrency "" ; 
-  gr:hasCurrencyValue "0"^^xsd:float ; 
-  gr:hasUnitOfMeasurement "" ; 
-  dcterms:decription "Enough space for all of your high-res images and more"@en . 
+:StuffAndPrivacy
+  a legal:Clause ; 
+  legal:name "Your Stuff & Your Privacy" ; 
+  legal:text "By using our Services you provide us with information, files, and folders that you submit to Dropbox (together, “your stuff”). You retain full ownership to your stuff. ..."@en . 
+
+:Sharing
+  a legal:Clause ; 
+  legal:name "Sharing Your Stuff" ; 
+  legal:text "The Services provide features that allow you to share your stuff with others or to make it public. There are many things that users may do with that stuff (for example, copy it, modify it, re-share it). Please consider carefully what you choose to share or make public. Dropbox has no responsibility for that activity."@en . 
+
+:Responsibilities
+  a legal:Clause ; 
+  legal:name "Your Responsibilities" ; 
+  legal:text "Files and other content in the Services may be protected by intellectual property rights of others. Please do not copy, upload, download, or share files unless you have the right to do so. You, not Dropbox, will be fully responsible and liable for what you copy, share, upload, download or otherwise use while using the Services..."@en.
+
+:AccountSecurity
+  a legal:Clause ; 
+  legal:name "Account Security" ; 
+  legal:text "You are responsible for safeguarding the password that you use to access the Services and you agree not to disclose your password to any third party. You are responsible for any activity using your account, whether or not you authorized that activity. You should immediately notify Dropbox of any unauthorized use of your account..."@en . 
+
+:TeamsAgreement
+  a legal:TermsAndConditions ; 
+  dcterms:title "Teams Agreement"@en ; 
+  dcterms:description "This Dropbox for Teams Agreement (the \"Agreement\") is between Dropbox, Inc., a Delaware corporation and Customer or End User, as applicable. This Agreement governs access to and use of the Dropbox for Teams services and any client software..."@en ; 
+  legal:hasClause 
+    :TeamsAgreementClause1,
+	:TeamsAgreementClause2,
+	:TeamsAgreementClause3.
+
+:TeamsAgreementClause1
+  a legal:Clause ; 
+  legal:name "1. End Users" ; 
+  legal:text "Accounts. When joining a Teams account, an End User may join with a new account or convert an existing personal account into a Teams account. It's important to note that once an End User's personal account becomes a Teams account, it will be subject to the Teams Administrator's control..."@en . 
+
+:TeamsAgreementClause2
+  a legal:Clause ; 
+  legal:name "2. Customer Obilgations" ; 
+  legal:text "Compliance. Customer will use the Services in compliance with the Dropbox Terms of Service including the Acceptable Use Policy. Customer will obtain and maintain any consents from End Users to allow Administrators to engage in the activities described in this Agreement and to allow Dropbox to provide the Services..."@en . 
+
+:TeamsAgreementClause3
+  a legal:Clause ; 
+  legal:name "3. Services" ; 
+  legal:text "Provision of Services. Customer may access and use the Services made available by Dropbox under this Agreement..."@en . 
+
+:PrivacyPolicy
+  a legal:TermsAndConditions ; 
+  dcterms:title "Privacy Policy"@en ; 
+  dcterms:description "This Privacy Policy provides our policies and procedures for collecting, using, and disclosing your information. Users can access the Dropbox service..."@en ; 
+  legal:hasClause 
+    :PrivacyPolicyClause1,
+	:PrivacyPolicyClause2,
+	:PrivacyPolicyClause3. 
+
+:PrivacyPolicyClause1
+  a legal:Clause ; 
+  legal:name "1. The Information We Collect And Store" ; 
+  legal:text "We may collect and store the following information when running the Dropbox Service..."@en . 
+
+:PrivacyPolicyClause2
+  a legal:Clause ; 
+  legal:name "2. How We Use Personal Information" ; 
+  legal:text "Personal Information. In the course of using the Service, we may collect personal information that can be used to contact or identify you..."@en . 
+
+:PrivacyPolicyClause3
+  a legal:Clause ; 
+  legal:name "3. Information Sharing and Disclosure" ; 
+  legal:text "Your Use. We will display your Personal Information in your profile page and elsewhere on the Service according to the preferences you set in your account..."@en . 
+
+:DMCAPolicy
+  a legal:TermsAndConditions ; 
+  dcterms:title "DMCA Policy"@en ; 
+  dcterms:description "Dropbox respects the intellectual property rights of others and expects its users to do the same. In accordance with the Digital Millennium Copyright Act of 1998, the text of which may be found on the U.S. Copyright Office website at <a href=\"http://www.copyright.gov/legislation/dmca.pdf\">..."@en . 
