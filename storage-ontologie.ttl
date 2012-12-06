@@ -2,14 +2,12 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix vann: <http://purl.org/vocab/vann/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix usdl: <http://www.linked-usdl.org/ns/usdl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix gr: <http://purl.org/goodrelations/v1#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sec: <http://www.linked-usdl.org/ns/usdl-sec#> .
-@prefix org: <http://www.w3.org/ns/org#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix blueprint: <http://bizweb.sap.com/TR/blueprint#> .
 @prefix price: <http://www.linked-usdl.org/ns/usdl-price#> .
@@ -24,7 +22,23 @@
     dc:modified "2012-11-29"^^xsd:date;
     dc:creator
         staas:metzke,
-        staas:lamina.
+        staas:lamina;
+	owl:imports 
+	  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>,
+	  <http://www.w3.org/2002/07/owl#>,
+	  <http://purl.org/dc/elements/1.1/>,
+	  <http://www.w3.org/2001/XMLSchema#>,
+	  <http://xmlns.com/foaf/0.1/>,
+	  <http://www.linked-usdl.org/ns/usdl#>,
+	  <http://www.w3.org/2000/01/rdf-schema#>,
+	  <http://purl.org/goodrelations/v1#>,
+	  <http://www.w3.org/2004/02/skos/core#>,
+	  <http://www.linked-usdl.org/ns/usdl-sec#>,
+	  <http://purl.org/dc/terms/>,
+	  <http://bizweb.sap.com/TR/blueprint#>,
+	  <http://www.linked-usdl.org/ns/usdl-price#>,
+	  <http://www.w3.org/2003/01/geo/wgs84_pos#>.
+	  
 
 # -------------------------------------------
 # creators section		

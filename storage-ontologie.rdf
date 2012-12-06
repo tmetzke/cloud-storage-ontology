@@ -16,6 +16,20 @@
 				<foaf:homepage rdf:resource="http://www.linkedin.com/pub/marco-lamina/45/229/b11" />
 			</foaf:Person>
 		</dc:creator>
+		<owl:imports rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#" />
+		<owl:imports rdf:resource="http://www.w3.org/2002/07/owl#" />
+		<owl:imports rdf:resource="http://purl.org/dc/elements/1.1/" />
+		<owl:imports rdf:resource="http://www.w3.org/2001/XMLSchema#" />
+		<owl:imports rdf:resource="http://xmlns.com/foaf/0.1/" />
+		<owl:imports rdf:resource="http://www.linked-usdl.org/ns/usdl#" />
+		<owl:imports rdf:resource="http://www.w3.org/2000/01/rdf-schema#" />
+		<owl:imports rdf:resource="http://purl.org/goodrelations/v1#" />
+		<owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core#" />
+		<owl:imports rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#" />
+		<owl:imports rdf:resource="http://purl.org/dc/terms/" />
+		<owl:imports rdf:resource="http://bizweb.sap.com/TR/blueprint#" />
+		<owl:imports rdf:resource="http://www.linked-usdl.org/ns/usdl-price#" />
+		<owl:imports rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#" />
 	</owl:Ontology>
 	<foaf:Organization rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#HPI">
 		<foaf:member rdf:resource="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#metzke" />
