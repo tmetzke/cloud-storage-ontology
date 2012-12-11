@@ -37,36 +37,36 @@
 		<foaf:name>Hasso Plattner Institute, Potsdam</foaf:name>
 		<foaf:homepage rdf:resource="http://www.hpi.uni-potsdam.de" />
 	</foaf:Organization>
-	<owl:Property rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#hasServiceProperty">
+	<owl:ObjectProperty rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#hasServiceProperty">
 		<rdfs:subPropertyOf rdf:resource="http://purl.org/goodrelations/v1#quantitativeProductOrServiceProperty" />
-		<rdfs:label>serviceProperty</rdfs:label>
+		<rdfs:label>a specific property of a price plan</rdfs:label>
 		<rdfs:domain rdf:resource="http://www.linked-usdl.org/ns/usdl-price#PricePlan" />
 		<rdfs:range rdf:resource="http://purl.org/goodrelations/v1#QuantitativeValue" />
-	</owl:Property>
-	<owl:Property rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#hasfileSize">
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#hasfileSize">
 		<rdfs:subPropertyOf rdf:resource="http://purl.org/goodrelations/v1#quantitativeProductOrServiceProperty" />
 		<rdfs:label>maximum file size available</rdfs:label>
 		<rdfs:domain rdf:resource="http://purl.org/goodrelations/v1#ProductOrService" />
 		<rdfs:range rdf:resource="http://purl.org/goodrelations/v1#QuantitativeValue" />
-	</owl:Property>
-	<owl:Property rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#hasCapacity">
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#hasCapacity">
 		<rdfs:subPropertyOf rdf:resource="http://purl.org/goodrelations/v1#quantitativeProductOrServiceProperty" />
 		<rdfs:label>General Capacity Offered</rdfs:label>
 		<rdfs:domain rdf:resource="http://purl.org/goodrelations/v1#ProductOrService" />
 		<rdfs:range rdf:resource="http://purl.org/goodrelations/v1#QuantitativeValue" />
-	</owl:Property>
-	<owl:Property rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#hasNumberOfFiles">
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#hasNumberOfFiles">
 		<rdfs:subPropertyOf rdf:resource="http://purl.org/goodrelations/v1#quantitativeProductOrServiceProperty" />
 		<rdfs:label>number of files allowed</rdfs:label>
 		<rdfs:domain rdf:resource="http://purl.org/goodrelations/v1#ProductOrService" />
 		<rdfs:range rdf:resource="http://purl.org/goodrelations/v1#QuantitativeValue" />
-	</owl:Property>
-	<owl:Property rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#hasServerLocation">
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#hasServerLocation">
 		<rdfs:subPropertyOf rdf:resource="http://purl.org/goodrelations/v1#quantitativeProductOrServiceProperty" />
 		<rdfs:label>approximate geo location of used server</rdfs:label>
 		<rdfs:domain rdf:resource="http://purl.org/goodrelations/v1#ProductOrService" />
 		<rdfs:range rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Location" />
-	</owl:Property>
+	</owl:ObjectProperty>
 	<usdl:InteractionProtocol rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#HTTP">
 		<dcterms:title xml:lang="en">HTTP</dcterms:title>
 		<dcterms:description xml:lang="en">Hypertext Transfer Protocol for downloading files.&lt;br&gt;</dcterms:description>
