@@ -58,36 +58,34 @@ staas:HPI a foaf:Organization;
 		staas:lamina;
     foaf:name "Hasso Plattner Institute, Potsdam";
     foaf:homepage <http://www.hpi.uni-potsdam.de>.
-
-
 	
 # -------------------------------------------
 # new properties
 # -------------------------------------------
 
 staas:hasServiceProperty
-  a owl:Property;
+  a owl:ObjectProperty;
   rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
-  rdfs:label "serviceProperty" ; 
+  rdfs:label "a specific property of a price plan" ; 
   rdfs:domain price:PricePlan; 
   rdfs:range gr:QuantitativeValue . 
 	
 staas:hasfileSize
-  a owl:Property ; 
+  a owl:ObjectProperty ; 
   rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
   rdfs:label "maximum file size available" ; 
   rdfs:domain gr:ProductOrService ; 
   rdfs:range gr:QuantitativeValue . 
 
 staas:hasCapacity
-  a owl:Property ; 
+  a owl:ObjectProperty ; 
   rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
   rdfs:label "General Capacity Offered" ; 
   rdfs:domain gr:ProductOrService ; 
   rdfs:range gr:QuantitativeValue .
   
 staas:hasNumberOfFiles
-  a owl:Property ; 
+  a owl:ObjectProperty ; 
   rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
   rdfs:label "number of files allowed" ; 
   rdfs:domain gr:ProductOrService ; 
@@ -95,7 +93,7 @@ staas:hasNumberOfFiles
 
 # TODO have to change geo:Location to existing property/class of geo ontology
 staas:hasServerLocation
-  a owl:Property ; 
+  a owl:ObjectProperty ; 
   rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
   rdfs:label "approximate geo location of used server" ; 
   rdfs:domain gr:ProductOrService ; 
