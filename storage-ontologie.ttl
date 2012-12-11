@@ -12,17 +12,16 @@
 @prefix blueprint: <http://bizweb.sap.com/TR/blueprint#> .
 @prefix price: <http://www.linked-usdl.org/ns/usdl-price#> .
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>.
-@prefix staas: <https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#>.
-@base <https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf>.
+@base <https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#>.
 
 
-<> a owl:Ontology;
+<https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf> a owl:Ontology;
     dc:title "Linked-USDL Ontology for Storage as a Service";
     dc:description "This vocabulary provides the terms for describing services that offer Cloud Storage as a Service. It is mainly based on the specifications of the Linked USDL Core Ontology.";
     dc:modified "2012-11-29"^^xsd:date;
     dc:creator
-        staas:metzke,
-        staas:lamina;
+        :metzke,
+        :lamina;
 	owl:imports 
 	  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>,
 	  <http://www.w3.org/2002/07/owl#>,
@@ -44,18 +43,18 @@
 # creators section		
 # -------------------------------------------
 
-staas:metzke a foaf:Person;
+:metzke a foaf:Person;
     foaf:name "Tobias Metzke";
     foaf:homepage <http://github.com/tmetzke>.
 	
-staas:lamina a foaf:Person;
+:lamina a foaf:Person;
 	foaf:name "Marco Lamina";
     foaf:homepage <http://www.linkedin.com/pub/marco-lamina/45/229/b11>.
 	
-staas:HPI a foaf:Organization;
+:HPI a foaf:Organization;
     foaf:member 
-		staas:metzke, 
-		staas:lamina;
+		:metzke, 
+		:lamina;
     foaf:name "Hasso Plattner Institute, Potsdam";
     foaf:homepage <http://www.hpi.uni-potsdam.de>.
 	
@@ -63,28 +62,28 @@ staas:HPI a foaf:Organization;
 # new properties
 # -------------------------------------------
 
-staas:hasServiceProperty
+:hasServiceProperty
   a owl:ObjectProperty;
   rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
   rdfs:label "a specific property of a price plan" ; 
   rdfs:domain price:PricePlan; 
   rdfs:range gr:QuantitativeValue . 
 	
-staas:hasfileSize
+:hasfileSize
   a owl:ObjectProperty ; 
   rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
   rdfs:label "maximum file size available" ; 
   rdfs:domain gr:ProductOrService ; 
   rdfs:range gr:QuantitativeValue . 
 
-staas:hasCapacity
+:hasCapacity
   a owl:ObjectProperty ; 
   rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
   rdfs:label "General Capacity Offered" ; 
   rdfs:domain gr:ProductOrService ; 
   rdfs:range gr:QuantitativeValue .
   
-staas:hasNumberOfFiles
+:hasNumberOfFiles
   a owl:ObjectProperty ; 
   rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
   rdfs:label "number of files allowed" ; 
@@ -92,7 +91,7 @@ staas:hasNumberOfFiles
   rdfs:range gr:QuantitativeValue . 
 
 # TODO have to change geo:Location to existing property/class of geo ontology
-staas:hasServerLocation
+:hasServerLocation
   a owl:ObjectProperty ; 
   rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
   rdfs:label "approximate geo location of used server" ; 
@@ -104,99 +103,99 @@ staas:hasServerLocation
 # -------------------------------------------
 
 #Interaction Protocols
-staas:HTTP 
+:HTTP 
   a usdl:InteractionProtocol ; 
   dcterms:title "HTTP"@en ; 
   dcterms:description "Hypertext Transfer Protocol for downloading files.<br>"@en ; 
   usdl:hasInteraction :HTTP-GET. 
 
-staas:BitTorrent 
+:BitTorrent 
   a usdl:InteractionProtocol ; 
   dcterms:title "BitTorrent"@en ; 
   dcterms:description "BitTorrent protocol for downloading files.<br>"@en ; 
   usdl:hasTechnicalInterface <http://www.bittorrent.org/beps/bep_0003.html> . 
 
-staas:SOAP 
+:SOAP 
   a usdl:InteractionProtocol ; 
   dcterms:title "SOAP"@en ; 
   dcterms:description "Simple Object Access Protocol"@en ; 
   usdl:hasTechnicalInterface <http://www.w3.org/TR/soap/> . 
 
-staas:REST
+:REST
   a usdl:InteractionProtocol ; 
   dcterms:title "REST"@en ; 
   dcterms:description "Representational State Transfer"@en ; 
   usdl:hasTechnicalInterface <http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm> .
 
 #Interactions and Parameters
-staas:HTTP-GET 
+:HTTP-GET 
   a usdl:Interaction ; 
   dcterms:title "GET File"@en ; 
   dcterms:description "HTTP GET Request for Downloading a file.<br>"@en ; 
   usdl:hasInput :fileNameParameter; 
   usdl:hasOutput :FileOutput. 
 
-staas:fileNameParameter
+:fileNameParameter
   a usdl:Parameter ; 
   dcterms:description "the location and name of the file<br>"@en ; 
   rdfs:label "file location"@en . 
 
-staas:FileOutput
+:FileOutput
   a usdl:Parameter ; 
   rdfs:label "File"@en ; 
   dcterms:description "the file object that can be found at the given location<br>"@en . 
 
 #Security Measures  
-staas:HTTPSConnection
+:HTTPSConnection
   a sec:SecurityMeasure ; 
   dcterms:description ""@en ; 
   dcterms:subject sec:Integrity, 
-    staas:Secrecy, 
-    staas:SSL; 
+    :Secrecy, 
+    :SSL; 
   dcterms:title "HTTPS Connection"@en . 
 
-staas:Directory
+:Directory
   a sec:SecurityMeasure ; 
   dcterms:description ""@en ; 
   dcterms:subject sec:Authentication , 
     sec:Access_Control , 
-    staas:OAuth ; 
+    :OAuth ; 
   dcterms:title "Directory"@en .
 
 #Security Mechanisms  
-staas:Secrecy
+:Secrecy
   a owl:NamedIndividual, skos:Concept;
   skos:broader sec:SecurityMechanism;
   skos:inScheme sec:securityMechanismsTaxonomy;
   rdfs:label "Secrecy". 
 
 #Security Technologies
-staas:SSL 
+:SSL 
   a owl:NamedIndividual, skos:Concept;
   skos:broader sec:SecurityTechnology;
   skos:inScheme sec:securityMechanismsTaxonomy;
   rdfs:label "SSL".
 
-staas:TLS
+:TLS
   a owl:NamedIndividual, skos:Concept;
   skos:broader sec:SecurityTechnology;
   skos:inScheme sec:securityMechanismsTaxonomy; 
   rdfs:label "TLS" . 
 
-staas:OAuth 
+:OAuth 
   a owl:NamedIndividual, skos:Concept;
   skos:broader sec:SecurityTechnology;
   skos:inScheme sec:securityMechanismsTaxonomy; 
   rdfs:label "OAuth" .
 
-staas:AES 
+:AES 
   a owl:NamedIndividual, skos:Concept;
   skos:broader sec:SecurityTechnology;
   skos:inScheme sec:securityMechanismsTaxonomy;
   rdfs:label "AES" .
 
 #SAP Business Blueprints  
-staas:ITServices
+:ITServices
   a owl:NamedIndividual, skos:Concept ; 
   skos:inScheme blueprint:Industry ; 
   rdfs:label "IT services" .

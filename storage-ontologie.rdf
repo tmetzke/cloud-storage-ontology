@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns:sec="http://www.linked-usdl.org/ns/usdl-sec#" xmlns:usdl="http://www.linked-usdl.org/ns/usdl#" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:price="http://www.linked-usdl.org/ns/usdl-price#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:gr="http://purl.org/goodrelations/v1#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:staas="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:blueprint="http://bizweb.sap.com/TR/blueprint#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+<rdf:RDF xmlns:sec="http://www.linked-usdl.org/ns/usdl-sec#" xmlns:usdl="http://www.linked-usdl.org/ns/usdl#" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:price="http://www.linked-usdl.org/ns/usdl-price#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:gr="http://purl.org/goodrelations/v1#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:blueprint="http://bizweb.sap.com/TR/blueprint#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
 	<owl:Ontology rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf">
 		<dc:title>Linked-USDL Ontology for Storage as a Service</dc:title>
 		<dc:description>This vocabulary provides the terms for describing services that offer Cloud Storage as a Service. It is mainly based on the specifications of the Linked USDL Core Ontology.</dc:description>
@@ -70,7 +70,24 @@
 	<usdl:InteractionProtocol rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#HTTP">
 		<dcterms:title xml:lang="en">HTTP</dcterms:title>
 		<dcterms:description xml:lang="en">Hypertext Transfer Protocol for downloading files.&lt;br&gt;</dcterms:description>
-		<usdl:hasInteraction rdf:resource="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdfHTTP-GET" />
+		<usdl:hasInteraction>
+			<usdl:Interaction rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#HTTP-GET">
+				<dcterms:title xml:lang="en">GET File</dcterms:title>
+				<dcterms:description xml:lang="en">HTTP GET Request for Downloading a file.&lt;br&gt;</dcterms:description>
+				<usdl:hasInput>
+					<usdl:Parameter rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#fileNameParameter">
+						<dcterms:description xml:lang="en">the location and name of the file&lt;br&gt;</dcterms:description>
+						<rdfs:label xml:lang="en">file location</rdfs:label>
+					</usdl:Parameter>
+				</usdl:hasInput>
+				<usdl:hasOutput>
+					<usdl:Parameter rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#FileOutput">
+						<rdfs:label xml:lang="en">File</rdfs:label>
+						<dcterms:description xml:lang="en">the file object that can be found at the given location&lt;br&gt;</dcterms:description>
+					</usdl:Parameter>
+				</usdl:hasOutput>
+			</usdl:Interaction>
+		</usdl:hasInteraction>
 	</usdl:InteractionProtocol>
 	<usdl:InteractionProtocol rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#BitTorrent">
 		<dcterms:title xml:lang="en">BitTorrent</dcterms:title>
@@ -87,20 +104,6 @@
 		<dcterms:description xml:lang="en">Representational State Transfer</dcterms:description>
 		<usdl:hasTechnicalInterface rdf:resource="http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm" />
 	</usdl:InteractionProtocol>
-	<usdl:Interaction rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#HTTP-GET">
-		<dcterms:title xml:lang="en">GET File</dcterms:title>
-		<dcterms:description xml:lang="en">HTTP GET Request for Downloading a file.&lt;br&gt;</dcterms:description>
-		<usdl:hasInput rdf:resource="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdffileNameParameter" />
-		<usdl:hasOutput rdf:resource="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdfFileOutput" />
-	</usdl:Interaction>
-	<usdl:Parameter rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#fileNameParameter">
-		<dcterms:description xml:lang="en">the location and name of the file&lt;br&gt;</dcterms:description>
-		<rdfs:label xml:lang="en">file location</rdfs:label>
-	</usdl:Parameter>
-	<usdl:Parameter rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#FileOutput">
-		<rdfs:label xml:lang="en">File</rdfs:label>
-		<dcterms:description xml:lang="en">the file object that can be found at the given location&lt;br&gt;</dcterms:description>
-	</usdl:Parameter>
 	<sec:SecurityMeasure rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#HTTPSConnection">
 		<dcterms:description xml:lang="en">
 		</dcterms:description>
