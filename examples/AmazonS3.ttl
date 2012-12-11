@@ -47,8 +47,8 @@
     :IAM, 
     :DataEncryption; 
   usdl:hasProvider :AWS; 
-  usdl:hasServiceLevelProfile :StandardProfile. 
-  usdl:hasLegalCondition :Terms1, :Terms2, :Terms3, :Terms4;
+  usdl:hasServiceLevelProfile :StandardProfile; 
+  usdl:hasLegalCondition :Terms1, :Terms2, :Terms3, :Terms4.
 
 #Property Values
 :fileSize
