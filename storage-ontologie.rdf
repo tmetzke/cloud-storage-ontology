@@ -104,71 +104,55 @@
 	<sec:SecurityMeasure rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#HTTPSConnection">
 		<dcterms:description xml:lang="en">
 		</dcterms:description>
+		<dcterms:subject rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#Integrity" />
 		<dcterms:subject>
-			<skos:Concept rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#Integrity">
-				<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#Goal" />
-				<rdfs:label>Integrity</rdfs:label>
-			</skos:Concept>
-		</dcterms:subject>
-		<dcterms:subject>
-			<skos:Concept rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#Secrecy">
-				<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#SecurityMechanism" />
+			<owl:NamedIndividual rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#Secrecy">
+				<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept" />
+				<skos:broader rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#SecurityMechanism" />
+				<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#securityMechanismsTaxonomy" />
 				<rdfs:label>Secrecy</rdfs:label>
-			</skos:Concept>
+			</owl:NamedIndividual>
 		</dcterms:subject>
 		<dcterms:subject>
-			<skos:Concept rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#SSL">
-				<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#SecurityTechnology" />
+			<owl:NamedIndividual rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#SSL">
+				<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept" />
+				<skos:broader rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#SecurityTechnology" />
+				<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#securityMechanismsTaxonomy" />
 				<rdfs:label>SSL</rdfs:label>
-			</skos:Concept>
+			</owl:NamedIndividual>
 		</dcterms:subject>
 		<dcterms:title xml:lang="en">HTTPS Connection</dcterms:title>
 	</sec:SecurityMeasure>
 	<sec:SecurityMeasure rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#Directory">
 		<dcterms:description xml:lang="en">
 		</dcterms:description>
+		<dcterms:subject rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#Authentication" />
+		<dcterms:subject rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#Access_Control" />
 		<dcterms:subject>
-			<skos:Concept rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#Authentication">
-				<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#Goal" />
-				<rdfs:label>Authentication</rdfs:label>
-			</skos:Concept>
-		</dcterms:subject>
-		<dcterms:subject>
-			<skos:Concept rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#AccessControl">
-				<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#SecurityMechanism" />
-				<rdfs:label>Access Control</rdfs:label>
-			</skos:Concept>
-		</dcterms:subject>
-		<dcterms:subject>
-			<skos:Concept rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#OAuth">
-				<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#SecurityTechnology" />
+			<owl:NamedIndividual rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#OAuth">
+				<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept" />
+				<skos:broader rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#SecurityTechnology" />
+				<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#securityMechanismsTaxonomy" />
 				<rdfs:label>OAuth</rdfs:label>
-			</skos:Concept>
+			</owl:NamedIndividual>
 		</dcterms:subject>
 		<dcterms:title xml:lang="en">Directory</dcterms:title>
 	</sec:SecurityMeasure>
-	<skos:Concept rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#Anonymity">
-		<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#Goal" />
-		<rdfs:label>Anonymity</rdfs:label>
-	</skos:Concept>
-	<skos:Concept rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#Confidentiality">
-		<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#Goal" />
-		<rdfs:label>Confidentiality</rdfs:label>
-	</skos:Concept>
-	<skos:Concept rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#Cryptography">
-		<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#SecurityMechanism" />
-		<rdfs:label>Cryptography</rdfs:label>
-	</skos:Concept>
-	<skos:Concept rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#TLS">
-		<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#SecurityTechnology" />
+	<owl:NamedIndividual rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#TLS">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept" />
+		<skos:broader rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#SecurityTechnology" />
+		<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#securityMechanismsTaxonomy" />
 		<rdfs:label>TLS</rdfs:label>
-	</skos:Concept>
-	<skos:Concept rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#AES">
-		<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#SecurityTechnology" />
+	</owl:NamedIndividual>
+	<owl:NamedIndividual rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#AES">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept" />
+		<skos:broader rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#SecurityTechnology" />
+		<skos:inScheme rdf:resource="http://www.linked-usdl.org/ns/usdl-sec#securityMechanismsTaxonomy" />
 		<rdfs:label>AES</rdfs:label>
-	</skos:Concept>
-	<skos:Concept rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#ITServices">
+	</owl:NamedIndividual>
+	<owl:NamedIndividual rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#ITServices">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept" />
 		<skos:inScheme rdf:resource="http://bizweb.sap.com/TR/blueprint#Industry" />
 		<rdfs:label>IT services</rdfs:label>
-	</skos:Concept>
+	</owl:NamedIndividual>
 </rdf:RDF>

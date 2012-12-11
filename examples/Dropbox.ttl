@@ -84,8 +84,8 @@
 :TransportEncryption
   a sec:SecurityMeasure ; 
   dcterms:subject 
-    staas:Confidentiality, 
-    staas:Cryptography, 
+    sec:Confidentiality, 
+    sec:Cryptography, 
     staas:AES,
 	staas:TLS;
   dcterms:title "Transport Encryption"@en.
@@ -94,7 +94,7 @@
   a sec:SecurityMeasure ; 
   dcterms:description ""@en ; 
   dcterms:subject staas:Anonymity , 
-    staas:AccessControl, 
+    sec:Access_Control, 
     staas:AES ; 
   dcterms:title "File Encryption"@en . 
 
@@ -107,7 +107,7 @@
   a sec:SecurityMeasure ; 
   dcterms:description ""@en ; 
   dcterms:subject staas:Anonymity , 
-    staas:AccessControl , 
+    sec:Access_Control , 
     staas:AES ; 
   dcterms:title "Two-Step Verification"@en . 
 

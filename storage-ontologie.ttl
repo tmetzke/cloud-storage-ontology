@@ -100,7 +100,7 @@ staas:hasServerLocation
   rdfs:range geo:Location . 
 
 # -------------------------------------------  
-# instances (as reference objects) from here on
+# individuals (as reference objects)
 # -------------------------------------------
 
 #Interaction Protocols
@@ -150,7 +150,7 @@ staas:FileOutput
 staas:HTTPSConnection
   a sec:SecurityMeasure ; 
   dcterms:description ""@en ; 
-  dcterms:subject staas:Integrity, 
+  dcterms:subject sec:Integrity, 
     staas:Secrecy, 
     staas:SSL; 
   dcterms:title "HTTPS Connection"@en . 
@@ -158,71 +158,45 @@ staas:HTTPSConnection
 staas:Directory
   a sec:SecurityMeasure ; 
   dcterms:description ""@en ; 
-  dcterms:subject staas:Authentication , 
-    staas:AccessControl , 
+  dcterms:subject sec:Authentication , 
+    sec:Access_Control , 
     staas:OAuth ; 
   dcterms:title "Directory"@en .
 
-#Security Goals
-staas:Integrity 
-  a skos:Concept ; 
-  skos:inScheme sec:Goal ; 
-  rdfs:label "Integrity" . 
-
-staas:Anonymity
-  a skos:Concept ; 
-  skos:inScheme sec:Goal ; 
-  rdfs:label "Anonymity" . 
-
-staas:Authentication 
-  a skos:Concept ; 
-  skos:inScheme sec:Goal ; 
-  rdfs:label "Authentication" .
-
-staas:Confidentiality 
-  a skos:Concept ; 
-  skos:inScheme sec:Goal ; 
-  rdfs:label "Confidentiality" .
-  
 #Security Mechanisms  
 staas:Secrecy
-  a skos:Concept ; 
-  skos:inScheme sec:SecurityMechanism ; 
-  rdfs:label "Secrecy" . 
-
-staas:AccessControl 
-  a skos:Concept ; 
-  skos:inScheme sec:SecurityMechanism ; 
-  rdfs:label "Access Control" . 
-
-staas:Cryptography 
-  a skos:Concept ; 
-  skos:inScheme sec:SecurityMechanism ; 
-  rdfs:label "Cryptography" . 
+  a owl:NamedIndividual, skos:Concept;
+  skos:broader sec:SecurityMechanism;
+  skos:inScheme sec:securityMechanismsTaxonomy;
+  rdfs:label "Secrecy". 
 
 #Security Technologies
 staas:SSL 
-  a skos:Concept ; 
-  skos:inScheme sec:SecurityTechnology ; 
-  rdfs:label "SSL" . 
+  a owl:NamedIndividual, skos:Concept;
+  skos:broader sec:SecurityTechnology;
+  skos:inScheme sec:securityMechanismsTaxonomy;
+  rdfs:label "SSL".
 
 staas:TLS
-  a skos:Concept ; 
-  skos:inScheme sec:SecurityTechnology ; 
+  a owl:NamedIndividual, skos:Concept;
+  skos:broader sec:SecurityTechnology;
+  skos:inScheme sec:securityMechanismsTaxonomy; 
   rdfs:label "TLS" . 
 
 staas:OAuth 
-  a skos:Concept ; 
-  skos:inScheme sec:SecurityTechnology ; 
+  a owl:NamedIndividual, skos:Concept;
+  skos:broader sec:SecurityTechnology;
+  skos:inScheme sec:securityMechanismsTaxonomy; 
   rdfs:label "OAuth" .
 
 staas:AES 
-  a skos:Concept ; 
-  skos:inScheme sec:SecurityTechnology ; 
+  a owl:NamedIndividual, skos:Concept;
+  skos:broader sec:SecurityTechnology;
+  skos:inScheme sec:securityMechanismsTaxonomy;
   rdfs:label "AES" .
 
 #SAP Business Blueprints  
 staas:ITServices
-  a skos:Concept ; 
+  a owl:NamedIndividual, skos:Concept ; 
   skos:inScheme blueprint:Industry ; 
   rdfs:label "IT services" .

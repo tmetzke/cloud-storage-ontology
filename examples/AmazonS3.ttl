@@ -84,7 +84,7 @@
 :SSE
   a sec:SecurityMeasure ; 
   dcterms:subject staas:Confidentiality , 
-    staas:Cryptography , 
+    sec:Cryptography , 
     staas:AES ; 
   dcterms:title "SSE"@en ; 
   dcterms:description "Server Side Encryption of the data.<br>"@en .  
