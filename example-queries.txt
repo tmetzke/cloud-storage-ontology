@@ -8,3 +8,12 @@ WHERE {
   ?service dcterms:title ?name.
   ?service dcterms:description ?description.
 }
+
+# List services and possible file sizes
+prefix staas:<https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#>
+prefix usdl:<http://www.linked-usdl.org/ns/usdl-core#>
+prefix gr:<http://purl.org/goodrelations/v1#>
+select ?s ?filesize where {
+?s a usdl:Service;
+     staas:hasFileSize ?filesizeResource.
+?filesizeResource gr:hasValue ?filesize}
