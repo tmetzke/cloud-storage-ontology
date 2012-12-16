@@ -1,0 +1,10 @@
+# List name and description of all available services
+
+PREFIX usdl: <http://www.linked-usdl.org/ns/usdl-core#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+SELECT ?name ?description
+WHERE {
+  ?service a usdl:Service.
+  ?service dcterms:title ?name.
+  ?service dcterms:description ?description.
+}
