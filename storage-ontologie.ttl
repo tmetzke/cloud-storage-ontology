@@ -69,7 +69,7 @@
   rdfs:domain price:PricePlan; 
   rdfs:range gr:QuantitativeValue . 
 	
-:hasfileSize
+:hasFileSize
   a owl:ObjectProperty ; 
   rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ; 
   rdfs:label "maximum file size available" ; 

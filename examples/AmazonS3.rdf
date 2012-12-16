@@ -13,7 +13,7 @@
 		<dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#datetime">2012-11-28T15:46</dcterms:modified>
 		<foaf:page rdf:resource="http://aws.amazon.com/de/s3/" />
 		<foaf:thumbnail rdf:resource="http://playground.ebiene.de/wp-content/uploads/2011/08/amazon-aws-64x64.png" />
-		<staas:hasfileSize>
+		<staas:hasFileSize>
 			<gr:QuantitativeValue rdf:about="http://aws.amazon.com/de/s3#fileSize">
 				<gr:hasMinValue>1</gr:hasMinValue>
 				<gr:hasMaxValue>1 099 511 627 776</gr:hasMaxValue>
@@ -21,7 +21,7 @@
 				<gr:hasValue>
 				</gr:hasValue>
 			</gr:QuantitativeValue>
-		</staas:hasfileSize>
+		</staas:hasFileSize>
 		<staas:hasNumberOfFiles>
 			<gr:QuantitativeValue rdf:about="http://aws.amazon.com/de/s3#numberOfFiles">
 				<gr:hasMaxValue>

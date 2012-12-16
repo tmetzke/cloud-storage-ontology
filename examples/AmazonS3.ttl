@@ -37,7 +37,7 @@
   dcterms:modified "2012-11-28T15:46"^^xsd:datetime ; 
   foaf:page <http://aws.amazon.com/de/s3/> ; 
   foaf:thumbnail <http://playground.ebiene.de/wp-content/uploads/2011/08/amazon-aws-64x64.png> ; 
-  staas:hasfileSize :fileSize; 
+  staas:hasFileSize :fileSize; 
   staas:hasNumberOfFiles :numberOfFiles;
   usdl:hasInteractionProtocol staas:SOAP , 
     staas:REST, 

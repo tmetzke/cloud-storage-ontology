@@ -43,7 +43,7 @@
 		<rdfs:domain rdf:resource="http://www.linked-usdl.org/ns/usdl-price#PricePlan" />
 		<rdfs:range rdf:resource="http://purl.org/goodrelations/v1#QuantitativeValue" />
 	</owl:ObjectProperty>
-	<owl:ObjectProperty rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#hasfileSize">
+	<owl:ObjectProperty rdf:about="https://github.com/tmetzke/cloud-storage-ontology/blob/master/storage-ontologie.rdf#hasFileSize">
 		<rdfs:subPropertyOf rdf:resource="http://purl.org/goodrelations/v1#quantitativeProductOrServiceProperty" />
 		<rdfs:label>maximum file size available</rdfs:label>
 		<rdfs:domain rdf:resource="http://purl.org/goodrelations/v1#ProductOrService" />
