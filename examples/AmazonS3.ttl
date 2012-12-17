@@ -56,7 +56,7 @@
   gr:hasMinValue "1" ; 
   gr:hasMaxValue "1 099 511 627 776" ; 
   gr:hasUnitOfMeasurement "byte" ; 
-  gr:hasValue "" . 
+  gr:hasValue "1 099 511 627 776" . 
 
 :numberOfFiles
   a gr:QuantitativeValue ; 

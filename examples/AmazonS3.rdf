@@ -18,8 +18,7 @@
 				<gr:hasMinValue>1</gr:hasMinValue>
 				<gr:hasMaxValue>1 099 511 627 776</gr:hasMaxValue>
 				<gr:hasUnitOfMeasurement>byte</gr:hasUnitOfMeasurement>
-				<gr:hasValue>
-				</gr:hasValue>
+				<gr:hasValue>1 099 511 627 776</gr:hasValue>
 			</gr:QuantitativeValue>
 		</staas:hasFileSize>
 		<staas:hasNumberOfFiles>
