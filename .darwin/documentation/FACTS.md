@@ -1,0 +1,9 @@
+- Provides an ontology for cloud storage services linked to Linked USDL ontology
+- Ontology defines terms for Cloud Storage as a Service
+- Ontology includes properties for service properties, file size, capacity, number of files, server location
+- Ontology includes individuals for interaction protocols, interactions, parameters, security measures, security mechanisms, security technologies
+- Ontology creators are Tobias Metzke and Marco Lamina from Hasso Plattner Institute
+- Ontology uses RDF and Turtle syntax
+- Example SPARQL queries provided for listing services and file sizes
+- Dropbox example in Turtle syntax demonstrates usage of ontology for a specific service
+- Dropbox example includes service description, security profiles, provider information, pricing plans, legal conditions

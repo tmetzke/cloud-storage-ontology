@@ -1,0 +1,39 @@
+- description: '1. Look at the project TODOs
+
+    2. Pick one and fix it
+
+    3. Create a new PR'
+  input_required: false
+  title: Fix a TODO
+- description: '1. Look at the list of open Github issue
+
+    2. Read the issue and determine how to fix it
+
+    3. Fix it and create a PR'
+  input_required: false
+  title: Fix a Github Issue
+- description: '1. Read the latest 15 "write_file" event log entries
+
+    2. See the changes we''ve made give any clues about semantic relationships between
+    the files that were edited
+
+    3. Write one paragraph about your findings'
+  input_required: false
+  title: Find Correlated Files
+- description: '1. Run the tests
+
+    2. Analyze the test result and create a new Github issue with LOTS of emojis explaining
+    what''s not working
+
+
+    If all tests are green, just reply with a short message'
+  input_required: false
+  title: Test Results -> Github Issue
+- description: '1. Read the file tree
+
+    2. Pick a random Python file
+
+    3. Look at my coding style and roast the hell out of it. Use emojis!'
+  input_required: false
+  title: Roast My Style
+
